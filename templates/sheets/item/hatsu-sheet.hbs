@@ -1,0 +1,46 @@
+<section class="hxh-item-sheet">
+  <header class="sheet-header flexrow">
+    <img class="profile" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="64" height="64"/>
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nombre del Hatsu"/></h1>
+    </div>
+  </header>
+
+  <section class="sheet-body">
+    <h3>Descripción</h3>
+    {{editor item.system.description target="system.description" button=true editable=editable}}
+
+    <div class="grid grid-3">
+      <div>
+        <h3>Activación</h3>
+        <input type="text" name="system.activacion" value="{{item.system.activacion}}" placeholder="Acción, Gasto de Aura, etc."/>
+      </div>
+      <div>
+        <h3>Coste Base (PC)</h3>
+        <input type="number" name="system.pc.base" value="{{item.system.pc.base}}" min="0"/>
+      </div>
+      <div>
+        <h3>Estado</h3>
+        <label>
+          <input type="checkbox" name="system.enabled" {{checked item.system.enabled}}/>
+          Activo
+        </label>
+      </div>
+    </div>
+
+    <h3>Modificadores de Coste (PC)</h3>
+    <ol class="mods-list">
+      {{#each item.system.pc.mods as |mod idx|}}
+        <li class="flexrow">
+          <input type="text" name="system.pc.mods.{{idx}}.label" value="{{mod.label}}" placeholder="Etiqueta"/>
+          <input type="number" name="system.pc.mods.{{idx}}.value" value="{{mod.value}}"/>
+          <a class="control" data-action="remove-mod" data-idx="{{idx}}"><i class="fa-solid fa-trash"></i></a>
+        </li>
+      {{/each}}
+    </ol>
+    <button type="button" data-action="add-mod">Añadir modificador</button>
+
+    <h3>Efecto</h3>
+    {{editor item.system.efecto target="system.efecto" button=true editable=editable}}
+  </section>
+</section>

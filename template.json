@@ -1,0 +1,175 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ],
+    "templates": {
+      "base": {
+        "details": {
+          "concept": "",
+          "origin": "",
+          "faction": "",
+          "level": 1
+        },
+        "attributes": {
+          "aura": {
+            "value": 10,
+            "max": 10
+          },
+          "stamina": {
+            "value": 10,
+            "max": 10
+          },
+          "initiative": {
+            "value": 0
+          }
+        },
+        "abilities": {
+          "int": {
+            "label": "Inteligencia",
+            "value": 0
+          },
+          "per": {
+            "label": "Percepción",
+            "value": 0
+          },
+          "str": {
+            "label": "Fuerza",
+            "value": 0
+          },
+          "agi": {
+            "label": "Agilidad",
+            "value": 0
+          },
+          "con": {
+            "label": "Constitución",
+            "value": 0
+          },
+          "cha": {
+            "label": "Carisma",
+            "value": 0
+          }
+        },
+        "skills": {
+          "investigacion": {
+            "label": "Investigación",
+            "rank": 0,
+            "ability": "int"
+          },
+          "percepcion": {
+            "label": "Percepción",
+            "rank": 0,
+            "ability": "per"
+          },
+          "sigilo": {
+            "label": "Sigilo",
+            "rank": 0,
+            "ability": "agi"
+          },
+          "atletismo": {
+            "label": "Atletismo",
+            "rank": 0,
+            "ability": "str"
+          },
+          "punteria": {
+            "label": "Puntería",
+            "rank": 0,
+            "ability": "per"
+          }
+        },
+        "nen": {
+          "puntos": {
+            "total": 0,
+            "usados": 0
+          },
+          "tecnicas": {
+            "ten": 0,
+            "zetsu": 0,
+            "ren": 0,
+            "gyo": 0,
+            "ko": 0,
+            "shu": 0
+          },
+          "afinidades": {
+            "intensificacion": 0,
+            "emision": 0,
+            "manipulacion": 0,
+            "transmutacion": 0,
+            "materializacion": 0,
+            "especializacion": 0
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "base"
+      ]
+    },
+    "npc": {
+      "templates": [
+        "base"
+      ]
+    }
+  },
+  "Item": {
+    "types": [
+      "hatsu",
+      "talento",
+      "dote",
+      "arma",
+      "armadura",
+      "equipo"
+    ],
+    "templates": {
+      "base": {
+        "description": "",
+        "tags": []
+      }
+    },
+    "hatsu": {
+      "templates": [
+        "base"
+      ],
+      "enabled": false,
+      "pc": {
+        "base": 1,
+        "mods": []
+      },
+      "activacion": "",
+      "efecto": ""
+    },
+    "talento": {
+      "templates": [
+        "base"
+      ]
+    },
+    "dote": {
+      "templates": [
+        "base"
+      ]
+    },
+    "arma": {
+      "templates": [
+        "base"
+      ],
+      "danio": "",
+      "alcance": "",
+      "propiedades": ""
+    },
+    "armadura": {
+      "templates": [
+        "base"
+      ],
+      "defensa": 0,
+      "penalizador": 0
+    },
+    "equipo": {
+      "templates": [
+        "base"
+      ],
+      "peso": 0
+    }
+  }
+}

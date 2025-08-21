@@ -1,0 +1,43 @@
+{
+  "id": "hxh-1-8b",
+  "title": "Hunter × Hunter TTRPG (1.8B)",
+  "description": "Sistema base jugable para HxH 1.8B: datos Actor/Item, hoja de personaje, tiradas configurables y Hatsus con PC.",
+  "type": "system",
+  "version": "0.2.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12.331"
+  },
+  "authors": [
+    {
+      "name": "Tu Nombre",
+      "url": "",
+      "discord": ""
+    }
+  ],
+  "url": "https://github.com/Mirovhan/HxH-RPG",
+  "license": "LICENSE",
+  "readme": "",
+  "esmodules": [
+    "system/system.js"
+  ],
+  "styles": [
+    "styles/system.css"
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json",
+  "download": "https://github.com/Mirovhan/HxH-RPG/releases/latest/download/hxh-1-8b.zip"
+}
