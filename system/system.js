@@ -12,14 +12,14 @@ Hooks.once("init", async function () {
 
   // Settings
   game.settings.register("hxh-1-8b", "rollMode", {
-    name: game.i18n.localize("HXH.Settings.RollMode.Name"),
-    hint: game.i18n.localize("HXH.Settings.RollMode.Hint"),
+    name: "HXH.Settings.RollMode.Name",
+    hint: "HXH.Settings.RollMode.Hint",
     scope: "world",
     config: true,
     type: String,
     choices: {
-      "d20": game.i18n.localize("HXH.Settings.RollMode.d20"),
-      "d100": game.i18n.localize("HXH.Settings.RollMode.d100")
+      "d20": "HXH.Settings.RollMode.d20",
+      "d100": "HXH.Settings.RollMode.d100"
     },
     default: "d20"
   });
@@ -38,10 +38,10 @@ Hooks.once("init", async function () {
   });
 
   // Sheets
-  Actors.registerSheet("hxh-1-8b", HxHActorSheet, { label: game.i18n.localize("HXH.ActorSheet"),
+  Actors.registerSheet("hxh-1-8b", HxHActorSheet, { label: "HXH.ActorSheet",
     types: ["character", "npc"],
     makeDefault: true,
-    label: game.i18n.localize("HXH.ActorSheet")
+    label: "HXH.ActorSheet"
   });
 
   
@@ -51,7 +51,7 @@ Hooks.once("init", async function () {
 DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
   types: ["character", "npc"],
   makeDefault: true,
-  label: game.i18n.localize("HXH.ActorSheet")
+  label: "HXH.ActorSheet"
 });
 
 DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
