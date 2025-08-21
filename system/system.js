@@ -1,11 +1,12 @@
-import { HXH } from "./config.js";
+
 import { HxHActor } from "./hxh-actor.js";
 import { HxHItem } from "./hxh-item.js";
 import { HxHActorSheet } from "./actor-sheet.js";
 import { HxHHatsuSheet } from "./item-sheet.js";
+import "./config.js";
 
 Hooks.once("init", async function () {
-  console.log("HXH 1.8B | Init");
+  console.log("HXH 1.8B v13 | Init");
 
   // Document classes
   CONFIG.Actor.documentClass = HxHActor;
@@ -31,21 +32,14 @@ Hooks.once("init", async function () {
     "systems/hxh-1-8b/templates/sheets/item/hatsu-sheet.hbs"
   ]);
 
-  // Handlebars helpers
-  Handlebars.registerHelper("eq", (a,b) => a === b);
-  Handlebars.registerHelper("sumMods", mods => {
-    if (!Array.isArray(mods)) return 0;
-    return mods.reduce((acc, m) => acc + Number(m.value || 0), 0);
-  });
-
-  // Register sheets
-  Actors.unregisterSheet("core", ActorSheet);
+  // Register sheets (V2)
+  Actors.unregisterSheet("core", foundry.applications.sheets.ActorSheetV2);
   Actors.registerSheet("hxh-1-8b", HxHActorSheet, {
     types: ["character","npc"],
     makeDefault: true,
     label: game.i18n.localize("HXH.ActorSheet")
   });
 
-  Items.unregisterSheet("core", ItemSheet);
+  Items.unregisterSheet("core", foundry.applications.sheets.ItemSheetV2);
   Items.registerSheet("hxh-1-8b", HxHHatsuSheet, { types: ["hatsu"], makeDefault: true });
 });

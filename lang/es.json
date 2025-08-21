@@ -20,7 +20,7 @@
   "HXH.Settings.RollMode.d20": "d20 (+mods)",
   "HXH.Settings.RollMode.d100": "d100 (éxito si ≤ objetivo)",
   "HXH.Settings.PCFormula.Name": "Fórmula de PC",
-  "HXH.Settings.PCFormula.Hint": "Cálculo de Puntos de Complejidad: Nivel + INT + floor(PER/2). Ajusta si tu reglamento difiere.",
+  "HXH.Settings.PCFormula.Hint": "PC: Nivel + INT + floor(PER/2).",
   "HXH.Chat.HatsuActivated": "Hatsu activado: {{name}} (Coste PC: {{cost}})",
   "HXH.Chat.HatsuDeactivated": "Hatsu desactivado: {{name}}",
   "HXH.Prompt.PCExceeded": "Excede los PC disponibles ({{used}}/{{total}})."

@@ -1,4 +1,5 @@
-export class HxHItemSheet extends ItemSheet {
+
+export class HxHItemSheet extends foundry.applications.sheets.ItemSheetV2 {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["hxh-1-8b", "sheet", "item"],
@@ -14,18 +15,18 @@ export class HxHHatsuSheet extends HxHItemSheet {
     return "systems/hxh-1-8b/templates/sheets/item/hatsu-sheet.hbs";
   }
 
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find("[data-action='add-mod']").on("click", async ev => {
+  activateListeners(element) {
+    super.activateListeners(element);
+    element.querySelectorAll("[data-action='add-mod']").forEach(el => el.addEventListener("click", async ev => {
       const mods = Array.isArray(this.item.system.pc.mods) ? this.item.system.pc.mods : [];
       mods.push({ label: "", value: 0 });
       await this.item.update({ "system.pc.mods": mods });
-    });
-    html.find("[data-action='remove-mod']").on("click", async ev => {
+    }));
+    element.querySelectorAll("[data-action='remove-mod']").forEach(el => el.addEventListener("click", async ev => {
       const idx = Number(ev.currentTarget.dataset.idx);
       const mods = Array.isArray(this.item.system.pc.mods) ? this.item.system.pc.mods : [];
       mods.splice(idx, 1);
       await this.item.update({ "system.pc.mods": mods });
-    });
+    }));
   }
 }
