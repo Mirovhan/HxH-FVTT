@@ -38,7 +38,7 @@ Hooks.once("init", async function () {
   });
 
   // Sheets
-  Actors.registerSheet("hxh-1-8b", HxHActorSheet, {
+  Actors.registerSheet("hxh-1-8b", HxHActorSheet, { label: game.i18n.localize("HXH.ActorSheet"),
     types: ["character", "npc"],
     makeDefault: true,
     label: game.i18n.localize("HXH.ActorSheet")

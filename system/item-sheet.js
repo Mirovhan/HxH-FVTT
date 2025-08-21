@@ -1,11 +1,11 @@
+const { HandlebarsApplicationMixin } = foundry.applications.api;
 
-export class HxHItemSheet extends foundry.applications.sheets.ItemSheetV2 {
+export class HxHItemSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["hxh-1-8b", "sheet", "item"],
       width: 620,
-      height: 600,
-      tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "main" }]
+      height: 600
     });
   }
 }

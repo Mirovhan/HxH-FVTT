@@ -70,7 +70,7 @@
 
       <h3>Hatsus</h3>
       <ol class="items-list">
-        {{#each actor.items as |it|}}
+        {{#each items as |it|}}
           {{#if (eq it.type "hatsu")}}
             <li class="item hxh-hatsu-row" data-item-id="{{it.id}}">
               <img src="{{it.img}}" width="24" height="24"/>
@@ -137,7 +137,7 @@
     <!-- Inventario -->
     <div class="tab" data-group="primary" data-tab="inventario">
       <ol class="items-list">
-        {{#each actor.items as |it|}}
+        {{#each items as |it|}}
           <li class="item" data-item-id="{{it.id}}">
             <div class="flexrow">
               <img src="{{it.img}}" width="24" height="24"/>

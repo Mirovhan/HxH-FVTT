@@ -1,5 +1,6 @@
+const { HandlebarsApplicationMixin } = foundry.applications.api;
 
-export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
+export class HxHActorSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["hxh-1-8b", "sheet", "actor"],
@@ -12,9 +13,8 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
     return "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs";
   }
 
-  async getData(options) {
-    const context = await super.getData(options);
-    // Suministra alias esperados por la plantilla
+  async _prepareContext(_options) {
+    const context = await super._prepareContext(_options);
     context.actor = this.actor;
     context.system = this.actor.system;
     context.items = Array.from(this.actor.items);
