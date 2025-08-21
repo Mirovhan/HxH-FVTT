@@ -28,7 +28,7 @@ Hooks.once("init", async function () {
   await loadTemplates([
     "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs",
     "systems/hxh-1-8b/templates/sheets/item/hatsu-sheet.hbs"
-  });
+  ]);
 
   // Helpers
   Handlebars.registerHelper("eq", (a, b) => a === b);
