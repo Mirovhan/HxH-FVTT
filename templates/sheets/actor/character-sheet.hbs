@@ -5,20 +5,20 @@
     <div class="header-fields">
       <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Nombre del Personaje"/></h1>
       <div class="grid grid-3">
-        <label>Concepto</label>
-        <input type="text" name="system.details.concept" value="{{system.details.concept}}"/>
+        <label for="concept">Concepto</label>
+        <input id="concept" type="text" name="system.details.concept" autocomplete="off" value="{{system.details.concept}}"/>
         <span></span>
 
-        <label>Origen</label>
-        <input type="text" name="system.details.origin" value="{{system.details.origin}}"/>
+        <label for="origin">Origen</label>
+        <input id="origin" type="text" name="system.details.origin" autocomplete="off" value="{{system.details.origin}}"/>
         <span></span>
 
-        <label>Facción</label>
-        <input type="text" name="system.details.faction" value="{{system.details.faction}}"/>
+        <label for="faction">Facción</label>
+        <input id="faction" type="text" name="system.details.faction" autocomplete="off" value="{{system.details.faction}}"/>
         <span></span>
 
-        <label>Nivel</label>
-        <input type="number" name="system.details.level" value="{{system.details.level}}" min="1"/>
+        <label for="level">Nivel</label>
+        <input id="level" type="number" name="system.details.level" autocomplete="off" value="{{system.details.level}}" min="1"/>
         <span></span>
       </div>
     </div>
@@ -38,22 +38,22 @@
         <div>
           <h3>Aura</h3>
           <div class="pair">
-            <input type="number" name="system.attributes.aura.value" value="{{system.attributes.aura.value}}"/>
+            <input type="number" id="auraValue" name="system.attributes.aura.value" autocomplete="off" value="{{system.attributes.aura.value}}"/>
             <span>/</span>
-            <input type="number" name="system.attributes.aura.max" value="{{system.attributes.aura.max}}"/>
+            <input type="number" id="auraMax" name="system.attributes.aura.max" autocomplete="off" value="{{system.attributes.aura.max}}"/>
           </div>
         </div>
         <div>
           <h3>Stamina</h3>
           <div class="pair">
-            <input type="number" name="system.attributes.stamina.value" value="{{system.attributes.stamina.value}}"/>
+            <input type="number" id="staminaValue" name="system.attributes.stamina.value" autocomplete="off" value="{{system.attributes.stamina.value}}"/>
             <span>/</span>
-            <input type="number" name="system.attributes.stamina.max" value="{{system.attributes.stamina.max}}"/>
+            <input type="number" id="staminaMax" name="system.attributes.stamina.max" autocomplete="off" value="{{system.attributes.stamina.max}}"/>
           </div>
         </div>
         <div>
           <h3>Iniciativa</h3>
-          <input type="number" name="system.attributes.initiative.value" value="{{system.attributes.initiative.value}}"/>
+          <input type="number" id="initiative" name="system.attributes.initiative.value" autocomplete="off" value="{{system.attributes.initiative.value}}"/>
         </div>
       </div>
 
@@ -61,8 +61,8 @@
       <div class="skills grid grid-2">
         {{#each system.skills as |sk key|}}
           <div class="skill-row">
-            <label>{{sk.label}}</label>
-            <input type="number" name="system.skills.{{key}}.rank" value="{{sk.rank}}" min="0"/>
+            <label for="skill-{{key}}">{{sk.label}}</label>
+            <input id="skill-{{key}}" type="number" name="system.skills.{{key}}.rank" value="{{sk.rank}}" min="0" autocomplete="off"/>
             <button type="button" class="roll" data-action="roll-skill" data-skill="{{key}}">{{localize "HXH.Roll"}}</button>
           </div>
         {{/each}}
@@ -95,8 +95,8 @@
       <div class="grid grid-3">
         {{#each system.abilities as |ab key|}}
           <div class="ability">
-            <label>{{ab.label}}</label>
-            <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}" />
+            <label for="ab-{{key}}">{{ab.label}}</label>
+            <input id="ab-{{key}}" type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}" autocomplete="off"/>
           </div>
         {{/each}}
       </div>
@@ -117,8 +117,8 @@
           <h3>Técnicas</h3>
           <div class="grid grid-2">
             {{#each system.nen.tecnicas as |val k|}}
-              <label>{{k}}</label>
-              <input type="number" name="system.nen.tecnicas.{{k}}" value="{{val}}"/>
+              <label for="tec-{{k}}">{{k}}</label>
+              <input id="tec-{{k}}" type="number" name="system.nen.tecnicas.{{k}}" value="{{val}}" autocomplete="off"/>
             {{/each}}
           </div>
         </div>
@@ -126,8 +126,8 @@
           <h3>Afinidades</h3>
           <div class="grid grid-2">
             {{#each system.nen.afinidades as |val k|}}
-              <label>{{k}}</label>
-              <input type="number" name="system.nen.afinidades.{{k}}" value="{{val}}"/>
+              <label for="afin-{{k}}">{{k}}</label>
+              <input id="afin-{{k}}" type="number" name="system.nen.afinidades.{{k}}" value="{{val}}" autocomplete="off"/>
             {{/each}}
           </div>
         </div>
