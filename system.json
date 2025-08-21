@@ -2,8 +2,7 @@
   "id": "hxh-1-8b",
   "title": "Hunter × Hunter TTRPG (1.8B)",
   "description": "Sistema para jugar Hunter × Hunter 1.8B en Foundry VTT v13: hoja de personaje, tiradas d20/d100 y Hatsus con PC.",
-  "type": "system",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "compatibility": {
     "minimum": "13",
     "verified": "13.347"
@@ -34,6 +33,8 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 1,
-  "gridUnits": "m"
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  }
 }

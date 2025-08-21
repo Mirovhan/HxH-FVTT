@@ -1,3 +1,4 @@
+
 export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -13,6 +14,7 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
 
   async getData(options) {
     const context = await super.getData(options);
+    // Suministra alias esperados por la plantilla
     context.actor = this.actor;
     context.system = this.actor.system;
     context.items = Array.from(this.actor.items);

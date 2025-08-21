@@ -34,7 +34,3 @@ https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json
    ├─ es.json
    └─ en.json
 ```
-
-## Licencia
-El **código** del sistema está bajo **MIT** (ver `LICENSE`).  
-El **contenido del manual 1.8B** no está incluido y mantiene sus derechos.
