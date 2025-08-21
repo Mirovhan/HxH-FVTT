@@ -38,23 +38,40 @@ Hooks.once("init", async function () {
   });
 
   // Sheets
-  Actors.registerSheet("hxh-1-8b", HxHActorSheet, { label: "HXH.ActorSheet",
-    types: ["character", "npc"],
-    makeDefault: true,
-    label: "HXH.ActorSheet"
-  });
+  
 
   
 });
 
 // Register sheets using v13 API
-DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
-  types: ["character", "npc"],
-  makeDefault: true,
-  label: "HXH.ActorSheet"
-});
 
-DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
-  types: ["hatsu"],
-  makeDefault: true
-});
+
+
+
+
+// Register sheets (v13) with fallback
+console.log("HXH 1.8B | Registering sheets...");
+try {
+  if (globalThis.DocumentSheetConfig?.registerSheet) {
+    DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
+      types: ["character", "npc"],
+      makeDefault: true,
+      label: "HXH.ActorSheet"
+    });
+    DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
+      types: ["hatsu"],
+      makeDefault: true
+    });
+    console.log("HXH 1.8B | Sheets registered via DocumentSheetConfig");
+  } else {
+    Actors.registerSheet("hxh-1-8b", HxHActorSheet, {
+      types: ["character", "npc"], makeDefault: true, label: "HXH.ActorSheet"
+    });
+    Items.registerSheet("hxh-1-8b", HxHHatsuSheet, {
+      types: ["hatsu"], makeDefault: true
+    });
+    console.log("HXH 1.8B | Sheets registered via legacy API");
+  }
+} catch (e) {
+  console.error("HXH 1.8B | Sheet registration failed:", e);
+}

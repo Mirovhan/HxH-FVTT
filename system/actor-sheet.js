@@ -1,13 +1,15 @@
-const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { HandlebarsApplicationMixin, TabsV2 } = foundry.applications.api;
 
 export class HxHActorSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
   static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
     classes: ["hxh-1-8b", "sheet", "actor"],
     width: 740,
-    height: 720,
-    template: "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs",
-    tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "resumen" }]
+    height: 720
   });
+
+  static PARTS = {
+    body: { template: "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs" }
+  };
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -22,6 +24,13 @@ export class HxHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
   activateListeners(element) {
     super.activateListeners(element);
     if (!this.isEditable) return;
+
+    // Tabs
+    try {
+      this._tabs = new TabsV2(element, { navSelector: ".tabs", contentSelector: ".sheet-body", initial: "resumen" });
+    } catch (e) {
+      console.warn("HXH 1.8B | Tabs init warning:", e);
+    }
 
     element.querySelectorAll("[data-action='roll-skill']").forEach(btn => {
       btn.addEventListener("click", ev => this._rollSkill(ev));
