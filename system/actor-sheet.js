@@ -2,18 +2,23 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["hxh-1-8b", "sheet", "actor"],
-      template: "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs",
       width: 740,
-      height: 720,
-      tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "resumen" }]
+      height: 720
     });
   }
 
+  get template() {
+    return "systems/hxh-1-8b/templates/sheets/actor/character-sheet.hbs";
+  }
+
   async getData(options) {
-    const data = await super.getData(options);
-    data.system = this.actor.system;
-    data.config = {};
-    return data;
+    const context = await super.getData(options);
+    context.actor = this.actor;
+    context.system = this.actor.system;
+    context.items = Array.from(this.actor.items);
+    context.editable = this.isEditable;
+    context.owner = this.document?.isOwner ?? true;
+    return context;
   }
 
   activateListeners(element) {
@@ -31,9 +36,9 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
 
   async _rollSkill(ev) {
     const key = ev.currentTarget.dataset.skill;
-    const sk = this.actor.system.skills[key];
+    const sk = this.actor.system.skills?.[key];
     const abilKey = sk?.ability ?? "int";
-    const abil = Number(this.actor.system.abilities[abilKey]?.value ?? 0);
+    const abil = Number(this.actor.system.abilities?.[abilKey]?.value ?? 0);
     const rank = Number(sk?.rank ?? 0);
     const rollMode = game.settings.get("hxh-1-8b", "rollMode");
 
