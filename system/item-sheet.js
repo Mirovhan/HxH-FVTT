@@ -1,19 +1,17 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class HxHItemSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["hxh-1-8b", "sheet", "item"],
-      width: 620,
-      height: 600
-    });
-  }
+  static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+    classes: ["hxh-1-8b", "sheet", "item"],
+    width: 620,
+    height: 600
+  });
 }
 
 export class HxHHatsuSheet extends HxHItemSheet {
-  get template() {
-    return "systems/hxh-1-8b/templates/sheets/item/hatsu-sheet.hbs";
-  }
+  static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+    template: "systems/hxh-1-8b/templates/sheets/item/hatsu-sheet.hbs"
+  });
 
   activateListeners(element) {
     super.activateListeners(element);

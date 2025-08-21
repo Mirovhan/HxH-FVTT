@@ -44,8 +44,17 @@ Hooks.once("init", async function () {
     label: game.i18n.localize("HXH.ActorSheet")
   });
 
-  Items.registerSheet("hxh-1-8b", HxHHatsuSheet, {
-    types: ["hatsu"],
-    makeDefault: true
-  });
+  
+});
+
+// Register sheets using v13 API
+DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
+  types: ["character", "npc"],
+  makeDefault: true,
+  label: game.i18n.localize("HXH.ActorSheet")
+});
+
+DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
+  types: ["hatsu"],
+  makeDefault: true
 });
