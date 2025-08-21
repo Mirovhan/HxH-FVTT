@@ -1,6 +1,3 @@
-
-import { HXH } from "./config.js";
-
 export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -12,10 +9,10 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
     });
   }
 
-  getData(options) {
-    const data = super.getData(options);
+  async getData(options) {
+    const data = await super.getData(options);
     data.system = this.actor.system;
-    data.config = HXH;
+    data.config = {};
     return data;
   }
 
@@ -23,38 +20,13 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
     super.activateListeners(element);
     if (!this.isEditable) return;
 
-    element.querySelectorAll("[data-action='roll-skill']").forEach(el => el.addEventListener("click", ev => this._rollSkill(ev)));
+    element.querySelectorAll("[data-action='roll-skill']").forEach(btn => {
+      btn.addEventListener("click", ev => this._rollSkill(ev));
+    });
 
-    element.querySelectorAll("[data-action='toggle-hatsu']").forEach(el => el.addEventListener("click", async ev => {
-      const id = ev.currentTarget.dataset.id;
-      const item = this.actor.items.get(id);
-      if (!item) return;
-
-      const enable = !item.system.enabled;
-      if (enable) {
-        const cost = this._calcHatsuCost(item);
-        const used = this.actor.system.nen.puntos.usados + cost;
-        const total = this.actor.system.nen.puntos.total;
-        if (used > total) {
-          ui.notifications?.warn(game.i18n.format("HXH.Prompt.PCExceeded", { used, total }));
-          return;
-        }
-      }
-      await item.update({ "system.enabled": enable });
-
-      const msg = enable ? game.i18n.format("HXH.Chat.HatsuActivated", { name: item.name, cost: this._calcHatsuCost(item) })
-                         : game.i18n.format("HXH.Chat.HatsuDeactivated", { name: item.name });
-      ChatMessage.create({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        content: `<p>${msg}</p>`
-      });
-    }));
-  }
-
-  _calcHatsuCost(item) {
-    const base = Number(item.system?.pc?.base ?? 0);
-    const mods = Array.isArray(item.system?.pc?.mods) ? item.system.pc.mods.reduce((a,b)=>a+Number(b.value||0),0) : 0;
-    return base + mods;
+    element.querySelectorAll("[data-action='toggle-hatsu']").forEach(btn => {
+      btn.addEventListener("click", ev => this._toggleHatsu(ev));
+    });
   }
 
   async _rollSkill(ev) {
@@ -66,15 +38,48 @@ export class HxHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
     const rollMode = game.settings.get("hxh-1-8b", "rollMode");
 
     if (rollMode === "d20") {
-      const roll = await (new Roll(`1d20 + ${abil} + ${rank}`)).evaluate({async:true});
+      const roll = await (new Roll(`1d20 + ${abil} + ${rank}`)).evaluate({ async: true });
       const flavor = game.i18n.format("HXH.RollFlavor.Skill", { skill: sk?.label ?? key });
-      roll.toMessage({ speaker: ChatMessage.getSpeaker({actor: this.actor}), flavor });
+      roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }), flavor });
     } else {
-      const target = Math.max(1, 50 + (abil*5) + (rank*5));
-      const roll = await (new Roll(`1d100`)).evaluate({async:true});
+      const target = Math.max(1, 50 + (abil * 5) + (rank * 5));
+      const roll = await (new Roll(`1d100`)).evaluate({ async: true });
       const success = roll.total <= target;
       const flavor = `${game.i18n.format("HXH.RollFlavor.Skill", { skill: sk?.label ?? key })} | Objetivo: ${target} → ${success ? "ÉXITO" : "FALLO"}`;
-      roll.toMessage({ speaker: ChatMessage.getSpeaker({actor: this.actor}), flavor });
+      roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }), flavor });
     }
+  }
+
+  async _toggleHatsu(ev) {
+    const id = ev.currentTarget.dataset.id;
+    const item = this.actor.items.get(id);
+    if (!item) return;
+
+    const enable = !item.system.enabled;
+    if (enable) {
+      const cost = this._calcHatsuCost(item);
+      const used = (this.actor.system.nen.puntos.usados ?? 0) + cost;
+      const total = (this.actor.system.nen.puntos.total ?? 0);
+      if (used > total) {
+        ui.notifications?.warn(game.i18n.format("HXH.Prompt.PCExceeded", { used, total }));
+        return;
+      }
+    }
+    await item.update({ "system.enabled": enable });
+
+    const msg = enable
+      ? game.i18n.format("HXH.Chat.HatsuActivated", { name: item.name, cost: this._calcHatsuCost(item) })
+      : game.i18n.format("HXH.Chat.HatsuDeactivated", { name: item.name });
+
+    ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      content: `<p>${msg}</p>`
+    });
+  }
+
+  _calcHatsuCost(item) {
+    const base = Number(item.system?.pc?.base ?? 0);
+    const mods = Array.isArray(item.system?.pc?.mods) ? item.system.pc.mods.reduce((a, b) => a + Number(b.value || 0), 0) : 0;
+    return base + mods;
   }
 }

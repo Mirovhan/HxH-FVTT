@@ -1,19 +1,15 @@
-
 # Hunter × Hunter TTRPG (1.8B) — Foundry VTT System (v13)
 
-Sistema para Foundry VTT **v13** con hoja de personaje, tiradas **d20**/**d100**, y **Hatsus** con validación de **PC**.
+Sistema para jugar **Hunter × Hunter 1.8B** en **Foundry VTT v13**.
+Incluye hoja de personaje, tiradas configurables (**d20** o **d100**), y **Hatsus** con control de **PC**.
 
-## Manifest URL
+## Instalación por Manifest
 ```
 https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json
 ```
 
-## Instalación (Molten/Foundry)
-1. *Manage → Systems → Install System*.
-2. Pega el Manifest URL (arriba).
-3. Crea un mundo con **Hunter × Hunter TTRPG (1.8B)**.
+Requiere Foundry **v13**. Si usas 12.x, instala una versión anterior.
 
-## Cambios v13
-- Hojas migradas a **ActorSheetV2 / ItemSheetV2** (sin jQuery por defecto).
-- `compatibility` actualizado a `minimum: 13` y `verified: 13.347`.
-
+## Notas
+- PC Totales = **Nivel + INT + floor(PER/2)**.
+- No incluye contenido del manual 1.8B (sólo código del sistema).
