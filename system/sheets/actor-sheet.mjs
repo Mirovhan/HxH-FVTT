@@ -65,15 +65,7 @@ export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
     // Manual Tabs to avoid theme/DOM issues
     const nav = html.querySelector('.tabs');
     if (nav) {
-      nav.querySelectorAll('[data-tab]').forEach(a => {
-        a.addEventListener('click', ev => {
-          ev.preventDefault();
-          const tab = ev.currentTarget.dataset.tab;
-          this._showTab(html, tab);
-        });
-      });
-    }
-    this._showTab(html, 'summary');
+      if (nav) { nav.addEventListener('click', ev => { const a = ev.target.closest('.item[data-tab]'); if (!a) return; ev.preventDefault(); this._showTab(html, a.dataset.tab); }); } this._showTab(html, 'summary');
 
     // Tiradas de habilidades
     html.querySelectorAll("[data-action='roll-skill']").forEach(btn => {
