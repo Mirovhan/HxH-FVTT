@@ -21,27 +21,40 @@ export class HxHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
     return context;
   }
 
-  activateListeners(element) {
-    super.activateListeners(element);
-    if (!this.isEditable) return;
+  
+activateListeners(element) {
+  super.activateListeners(element);
+  if (!this.isEditable) return;
 
-    // Tabs
-    try {
-      this._tabs = new TabsV2(element, { navSelector: ".tabs", contentSelector: ".sheet-body", initial: "resumen" });
-    } catch (e) {
-      console.warn("HXH 1.8B | Tabs init warning:", e);
-    }
-
-    element.querySelectorAll("[data-action='roll-skill']").forEach(btn => {
-      btn.addEventListener("click", ev => this._rollSkill(ev));
-    });
-
-    element.querySelectorAll("[data-action='toggle-hatsu']").forEach(btn => {
-      btn.addEventListener("click", ev => this._toggleHatsu(ev));
+  // Manual tabs handler (robust across themes/versions)
+  const nav = element.querySelector('.tabs');
+  if (nav) {
+    nav.querySelectorAll('[data-tab]').forEach(a => {
+      a.addEventListener('click', ev => {
+        ev.preventDefault();
+        const tab = ev.currentTarget.dataset.tab;
+        this._showTab(element, tab);
+      });
     });
   }
+  // Ensure default visible
+  this._showTab(element, 'resumen');
 
-  async _rollSkill(ev) {
+  element.querySelectorAll("[data-action='roll-skill']").forEach(btn => {
+    btn.addEventListener("click", ev => this._rollSkill(ev));
+  });
+
+  element.querySelectorAll("[data-action='toggle-hatsu']").forEach(btn => {
+    btn.addEventListener("click", ev => this._toggleHatsu(ev));
+  });
+}
+
+_showTab(element, tab) {
+  element.querySelectorAll('.tabs [data-tab]').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+  element.querySelectorAll('.sheet-body .tab').forEach(p => p.classList.toggle('active', p.dataset.tab === tab));
+}
+
+async _rollSkill(ev) {
     const key = ev.currentTarget.dataset.skill;
     const sk = this.actor.system.skills?.[key];
     const abilKey = sk?.ability ?? "int";
