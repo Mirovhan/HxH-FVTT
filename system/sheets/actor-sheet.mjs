@@ -4,9 +4,10 @@ import { HXHLog } from "../utils/logger.mjs";
 import { rollD20, sendRollMessage, abilBonus, skillRanks } from "../utils/dice.mjs";
 
 export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+  get id() { return `hxh-actor-${this.document?.id ?? 'unknown'}`; }
+
   static DEFAULT_OPTIONS = {
     ...super.DEFAULT_OPTIONS,
-    id: "hxh-actor",
     classes: ["hxh-1-8b", "hxh-actor-sheet", "sheet", "actor"],
     window: { title: "HXH" }
   };

@@ -1,38 +1,36 @@
 <section class="hxh-actor-root">
-
-<header class="sheet-header">
-  <img class="profile" src="{{document.img}}" data-edit="img"/>
-  <div class="header-fields">
-    <h1 contenteditable="true" data-edit="name">{{document.name}}</h1>
-    <div class="grid grid-2">
-      <label>Concepto <input type="text" name="system.details.concept" value="{{system.details.concept}}" autocomplete="off"/></label>
-      <label>Origen <input type="text" name="system.details.origin" value="{{system.details.origin}}" autocomplete="off"/></label>
-      <label>Facción <input type="text" name="system.details.faction" value="{{system.details.faction}}" autocomplete="off"/></label>
-      <label>Nivel <input type="number" name="system.details.level" value="{{system.details.level}}" min="1"/></label>
+  <header class="sheet-header">
+    <img class="profile" src="{{document.img}}" data-edit="img"/>
+    <div class="header-fields">
+      <h1 contenteditable="true" data-edit="name">{{document.name}}</h1>
+      <div class="grid grid-2">
+        <label>Concepto <input type="text" name="system.details.concept" value="{{system.details.concept}}" autocomplete="off"/></label>
+        <label>Origen <input type="text" name="system.details.origin" value="{{system.details.origin}}" autocomplete="off"/></label>
+        <label>Facción <input type="text" name="system.details.faction" value="{{system.details.faction}}" autocomplete="off"/></label>
+        <label>Nivel <input type="number" name="system.details.level" value="{{system.details.level}}" min="1"/></label>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<nav class="tabs" data-group="primary">
-  \1 active\2>Summary</a>
-  <a class="item" data-tab="attributes">Attributes</a>
-  <a class="item" data-tab="nen">Nen</a>
-  <a class="item" data-tab="inventory">Inventory</a>
-</nav>
+  <nav class="tabs" data-group="primary">
+    <a class="item active" data-tab="summary">Summary</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="nen">Nen</a>
+    <a class="item" data-tab="inventory">Inventory</a>
+  </nav>
 
-<section class="tab-content">
-  <div class="tab" data-group="primary" data-tab="summary">
-    {{> "systems/hxh-1-8b/templates/actor/parts/summary.hbs"}}
-  </div>
-  <div class="tab" data-group="primary" data-tab="attributes">
-    {{> "systems/hxh-1-8b/templates/actor/parts/attributes.hbs"}}
-  </div>
-  <div class="tab" data-group="primary" data-tab="nen">
-    {{> "systems/hxh-1-8b/templates/actor/parts/nen.hbs"}}
-  </div>
-  <div class="tab" data-group="primary" data-tab="inventory">
-    {{> "systems/hxh-1-8b/templates/actor/parts/inventory.hbs"}}
-  </div>
-</section>
-
+  <section class="tab-content">
+    <div class="tab active" data-group="primary" data-tab="summary">
+      {{> "systems/hxh-1-8b/templates/actor/parts/summary.hbs"}}
+    </div>
+    <div class="tab" data-group="primary" data-tab="attributes">
+      {{> "systems/hxh-1-8b/templates/actor/parts/attributes.hbs"}}
+    </div>
+    <div class="tab" data-group="primary" data-tab="nen">
+      {{> "systems/hxh-1-8b/templates/actor/parts/nen.hbs"}}
+    </div>
+    <div class="tab" data-group="primary" data-tab="inventory">
+      {{> "systems/hxh-1-8b/templates/actor/parts/inventory.hbs"}}
+    </div>
+  </section>
 </section>
