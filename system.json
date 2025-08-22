@@ -1,8 +1,8 @@
 {
   "id": "hxh-1-8b",
   "title": "Hunter × Hunter TTRPG (1.8B)",
-  "version": "0.8.1",
-  "description": "Hoja única con listeners globales y persistencia inmediata.",
+  "version": "0.9.2",
+  "description": "Sección 1 completa: Retrato + Token, Origen (tipo/subtipo), XP→Nivel, puntos entrenables y atributos con bono no lineal. Persistencia y re-render.",
   "compatibility": {
     "minimum": "13",
     "verified": "13.341"

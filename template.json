@@ -6,98 +6,44 @@
     ],
     "templates": {
       "base": {
+        "identity": {
+          "origin": {
+            "type": "",
+            "subtype": ""
+          },
+          "age": 18,
+          "goal": "",
+          "flaws": {
+            "physical": "",
+            "mental": ""
+          }
+        },
         "details": {
-          "concept": "",
-          "origin": "",
-          "faction": "",
           "level": 1,
-          "notes": ""
+          "xp": 0
         },
-        "abilities": {
-          "fue": {
-            "label": "Fuerza",
-            "value": 10,
-            "bonus": 0
+        "attributes": {
+          "points": {
+            "current": 0,
+            "max": 0
           },
-          "des": {
-            "label": "Destreza",
-            "value": 10,
-            "bonus": 0
+          "base": {
+            "fue": 10,
+            "des": 10,
+            "con": 10,
+            "per": 10,
+            "int": 10,
+            "car": 10
           },
-          "con": {
-            "label": "Constitución",
-            "value": 10,
-            "bonus": 0
-          },
-          "per": {
-            "label": "Percepción",
-            "value": 10,
-            "bonus": 0
-          },
-          "int": {
-            "label": "Inteligencia",
-            "value": 10,
-            "bonus": 0
-          },
-          "car": {
-            "label": "Carisma",
-            "value": 10,
-            "bonus": 0
+          "trained": {
+            "fue": 0,
+            "des": 0,
+            "con": 0,
+            "per": 0,
+            "int": 0,
+            "car": 0
           }
-        },
-        "skills": {
-          "investigacion": {
-            "label": "Investigación",
-            "ability": "int",
-            "ranks": 0
-          },
-          "sigilo": {
-            "label": "Sigilo",
-            "ability": "des",
-            "ranks": 0
-          },
-          "punteria": {
-            "label": "Puntería",
-            "ability": "per",
-            "ranks": 0
-          },
-          "percepcion": {
-            "label": "Percepción",
-            "ability": "per",
-            "ranks": 0
-          },
-          "atletismo": {
-            "label": "Atletismo",
-            "ability": "fue",
-            "ranks": 0
-          }
-        },
-        "derived": {
-          "fortaleza": 0,
-          "reflejos": 0,
-          "voluntad": 0,
-          "experticia": 1
-        },
-        "resources": {
-          "vida": {
-            "value": 25
-          },
-          "energia": {
-            "value": 2
-          }
-        },
-        "nen": {
-          "pc": {
-            "total": 0,
-            "usados": 0
-          },
-          "aura": {
-            "max": 0,
-            "ofensiva": 0,
-            "defensiva": 0
-          }
-        },
-        "attacks": []
+        }
       }
     },
     "character": {
@@ -112,11 +58,6 @@
     }
   },
   "Item": {
-    "types": [
-      "weapon",
-      "armor",
-      "equipment",
-      "hatsu"
-    ]
+    "types": []
   }
 }

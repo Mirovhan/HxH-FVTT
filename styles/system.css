@@ -1,21 +1,26 @@
 
-/* Shōnen HxH theme */
-.hxh-actor-sheet { background:#0a0f16; color:#e8f2ff; }
-.hxh-actor-root .sheet-header { display:flex; gap:12px; padding:12px; background:linear-gradient(135deg,#0e1524,#0a1020); border:1px solid #1e2a44; border-radius:10px; }
-.hxh-actor-root .sheet-header img.profile { width:96px; height:96px; border:1px solid #2a3a58; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.35); }
-.hxh-actor-root .header-fields h1 { margin:0 0 6px; font-size:28px; letter-spacing:1px; text-shadow:0 0 10px rgba(47,209,117,.35); }
+.hxh-actor-sheet { background:#0a0f16; color:#eaf2ff; }
+.id-header { display:grid; grid-template-columns: 300px 1fr; gap:12px; padding:12px; border:1px solid #23324e; border-radius:12px; background:linear-gradient(135deg,#0f1626,#0b1120); }
+.img-col { display:flex; flex-direction:column; gap:10px; }
+figure { margin:0; }
+.portrait img { width:100%; height:260px; object-fit:cover; border-radius:12px; border:1px solid #2b3a5a; box-shadow:0 8px 16px rgba(0,0,0,.4); }
+.token img { width:96px; height:96px; object-fit:cover; border-radius:8px; border:1px solid #2b3a5a; box-shadow:0 6px 12px rgba(0,0,0,.35); }
+figcaption { font-size:12px; color:#9ab0d1; margin-bottom:4px; }
+.id-fields { display:flex; flex-direction:column; gap:8px; }
 .hxh-actor-root .grid { display:grid; gap:8px; }
+.hxh-actor-root .grid-2 { grid-template-columns: 1fr 1fr; }
 .hxh-actor-root .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-.hxh-actor-root .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
-.hxh-actor-root .main-grid { grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px; }
-.hxh-actor-root .main-grid .full { grid-column: 1 / -1; }
-.hxh-actor-root .card { background:linear-gradient(180deg,#131a2a,#0f1522); border:1px solid #273659; border-radius:12px; padding:12px; box-shadow:0 8px 22px rgba(0,0,0,.35); }
-.hxh-actor-root input, .hxh-actor-root textarea { background:#0a0f16; border:1px solid #293751; color:#e9f1ff; border-radius:8px; padding:6px 8px; }
-.hxh-actor-root h2 { font-size:20px; margin:6px 0 10px; color:#9be7b6; text-shadow:0 0 6px rgba(155,231,182,.3); }
-.dice-btn { width:32px; height:30px; border-radius:8px; font-size:16px; background:#1a2440; border:1px solid #2fd175; color:#e9f1ff; box-shadow:0 0 6px rgba(47,209,117,.5); cursor:pointer; }
-.dice-btn:hover { transform:translateY(-1px); box-shadow:0 0 14px rgba(47,209,117,.8); }
-.row { display:flex; align-items:center; gap:8px; }
-.skill-row { display:grid; grid-template-columns: 1fr auto auto auto; gap:8px; align-items:center; padding:4px 0; border-bottom:1px dashed #2a3a58; }
-.skill-row.head { font-weight:700; color:#8cf2b1; border-bottom:2px solid #2fd175; }
-.item-row { display:grid; grid-template-columns: 1fr auto auto; gap:8px; align-items:center; padding:4px 0; border-bottom:1px dashed #2a3a58; }
-.helper { align-self:center; color:#96a5c0; font-size:12px; }
+.hxh-actor-root .grid.three { grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-top:12px; }
+.hxh-actor-root .grid.two   { grid-template-columns: 1fr 1fr; gap:12px; margin:12px 0; }
+.card { background:linear-gradient(180deg,#121a2a,#0f1522); border:1px solid #273659; border-radius:12px; padding:12px; box-shadow:0 10px 22px rgba(0,0,0,.35); }
+.helper { color:#9ab0d1; font-size:12px; align-self:center; }
+.pill { background:#16233b; border:1px solid #2fd17555; padding:4px 8px; border-radius:999px; font-size:12px; display:inline-block; }
+.attr-grid { display:flex; flex-direction:column; gap:6px; }
+.attr-row { display:grid; grid-template-columns: 90px repeat(5, 1fr); gap:8px; align-items:end; }
+.attr-row .attr-name { font-weight:700; color:#9be7b6; }
+.attr-cell { display:flex; flex-direction:column; gap:4px; }
+.muted { font-size:11px; color:#9ab0d1; }
+input, select, textarea { background:#0a0f16; color:#eaf2ff; border:1px solid #2a3856; border-radius:8px; padding:6px 8px; }
+.row { display:flex; gap:6px; align-items:center; margin-top:6px; }
+.file-picker { background:#16233b; border:1px solid #2a6f4f; color:#eaf2ff; border-radius:8px; padding:6px 10px; cursor:pointer; }
+.file-picker:hover { box-shadow:0 0 10px rgba(47,209,117,.35); }
