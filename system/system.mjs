@@ -3,6 +3,15 @@ import { HXHActorSheet } from "./sheets/actor-sheet.mjs";
 import { HXHItemSheet, HXHWeaponSheet, HXHArmorSheet, HXHHatsuSheet } from "./items/item-sheets.mjs";
 
 Hooks.once("init", () => {
+  // Preload Handlebars partials required by the sheets
+  loadTemplates([
+    "systems/hxh-1-8b/templates/actor/parts/summary.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/attributes.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/nen.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/inventory.hbs",
+    "systems/hxh-1-8b/templates/item/item.hbs"
+  ]);
+
   try {
     DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HXHActorSheet, { types:["character","npc"], makeDefault:true });
     DocumentSheetConfig.registerSheet(Item,  "hxh-1-8b", HXHItemSheet,   { types:["equipment"], makeDefault:true });
