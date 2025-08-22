@@ -1,0 +1,35 @@
+
+<section class="pane two-cols">
+  <div class="card">
+    <h2>Recursos</h2>
+    <div class="grid grid-3">
+      <label>Vida <input type="number" name="system.resources.vida.value" value="{{system.resources.vida.value}}"/> / <span>{{resources.vidaMax}}</span></label>
+      <label>Energía Vital <input type="number" name="system.resources.energia.value" value="{{system.resources.energia.value}}"/> / <span>{{resources.energiaMax}}</span></label>
+      <label>Experticia <input type="number" name="system.derived.experticia" value="{{experticia}}" min="1"/></label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Derivadas</h2>
+    <div class="grid grid-3">
+      <label>Fortaleza <input type="number" name="system.derived.fortaleza" value="{{derived.fortaleza}}"/></label>
+      <label>Reflejos <input type="number" name="system.derived.reflejos" value="{{derived.reflejos}}"/></label>
+      <label>Voluntad <input type="number" name="system.derived.voluntad" value="{{derived.voluntad}}"/></label>
+    </div>
+  </div>
+
+  <div class="card full">
+    <h2>Habilidades</h2>
+    <div class="skills">
+      {{#each system.skills as |sk key|}}
+        <div class="skill-row">
+          <div class="skill-name">{{sk.label}}</div>
+          <div class="skill-abil">{{sk.ability}}</div>
+          <div class="skill-ranks"><input type="number" name="system.skills.{{key}}.ranks" value="{{sk.ranks}}" min="0" max="{{../ranksMax}}"/></div>
+          <div class="skill-roll"><button type="button" data-action="roll-skill" data-key="{{key}}" data-abil="{{sk.ability}}">{{localize "HXH.Roll"}}</button></div>
+        </div>
+      {{/each}}
+    </div>
+    <small>Máximo rangos por habilidad: {{ranksMax}} (2 × Experticia)</small>
+  </div>
+</section>

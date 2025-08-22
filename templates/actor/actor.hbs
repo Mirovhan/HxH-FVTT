@@ -1,0 +1,35 @@
+
+<header class="sheet-header">
+  <img class="profile" src="{{document.img}}" data-edit="img"/>
+  <div class="header-fields">
+    <h1 contenteditable="true" data-edit="name">{{document.name}}</h1>
+    <div class="grid grid-2">
+      <label>Concepto <input type="text" name="system.details.concept" value="{{system.details.concept}}" autocomplete="off"/></label>
+      <label>Origen <input type="text" name="system.details.origin" value="{{system.details.origin}}" autocomplete="off"/></label>
+      <label>Facción <input type="text" name="system.details.faction" value="{{system.details.faction}}" autocomplete="off"/></label>
+      <label>Nivel <input type="number" name="system.details.level" value="{{system.details.level}}" min="1"/></label>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" data-group="primary">
+  <a class="item" data-tab="summary">{{localize "HXH.Tabs.Summary"}}</a>
+  <a class="item" data-tab="attributes">{{localize "HXH.Tabs.Attributes"}}</a>
+  <a class="item" data-tab="nen">{{localize "HXH.Tabs.Nen"}}</a>
+  <a class="item" data-tab="inventory">{{localize "HXH.Tabs.Inventory"}}</a>
+</nav>
+
+<section class="tab-content">
+  <div class="tab" data-group="primary" data-tab="summary">
+    {{> "systems/hxh-1-8b/templates/actor/parts/summary.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="attributes">
+    {{> "systems/hxh-1-8b/templates/actor/parts/attributes.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="nen">
+    {{> "systems/hxh-1-8b/templates/actor/parts/nen.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="inventory">
+    {{> "systems/hxh-1-8b/templates/actor/parts/inventory.hbs"}}
+  </div>
+</section>

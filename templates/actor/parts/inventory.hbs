@@ -1,0 +1,35 @@
+
+<section class="pane two-cols">
+  <div class="card">
+    <h2>Armas</h2>
+    {{#each ../weapons as |w|}}
+      <div class="item-row">
+        <div class="item-name">{{w.name}}</div>
+        <div class="item-prop">{{w.system.damage.formula}}</div>
+        <div class="item-actions">
+          <button type="button" data-action="attack-weapon" data-id="{{w.id}}">{{localize "HXH.Attack"}}</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="card">
+    <h2>Armaduras</h2>
+    {{#each ../armors as |a|}}
+    <div class="item-row">
+      <div class="item-name">{{a.name}}</div>
+      <div class="item-prop">Reducción: {{a.system.ac}}</div>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="card full">
+    <h2>Equipo</h2>
+    {{#each ../equipment as |e|}}
+    <div class="item-row">
+      <div class="item-name">{{e.name}}</div>
+      <div class="item-prop">x{{e.system.quantity}}</div>
+    </div>
+    {{/each}}
+  </div>
+</section>

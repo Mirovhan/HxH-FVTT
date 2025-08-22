@@ -1,27 +1,43 @@
 {
-  "HXH.Title": "Hunter × Hunter TTRPG (1.8B)",
-  "HXH.ActorSheet": "Hoja de Personaje HxH",
-  "HXH.Skills": "Habilidades",
-  "HXH.Attributes": "Atributos",
-  "HXH.Nen": "Nen",
-  "HXH.Inventory": "Inventario",
-  "HXH.Resume": "Resumen",
-  "HXH.Roll": "Tirar",
-  "HXH.RollResult": "Resultado",
-  "HXH.Enable": "Activar",
-  "HXH.Disable": "Desactivar",
-  "HXH.PCUsed": "PC Usados",
-  "HXH.PCTotal": "PC Totales",
-  "HXH.Hatsu": "Hatsu",
-  "HXH.RollFlavor.Skill": "Prueba de {{skill}}",
-  "HXH.RollFlavor.Ability": "Prueba de {{ability}}",
-  "HXH.Settings.RollMode.Name": "Modo de tirada",
-  "HXH.Settings.RollMode.Hint": "Elige el motor de tiradas: d20 aditivo o d100 por debajo.",
-  "HXH.Settings.RollMode.d20": "d20 (+mods)",
-  "HXH.Settings.RollMode.d100": "d100 (éxito si ≤ objetivo)",
-  "HXH.Settings.PCFormula.Name": "Fórmula de PC",
-  "HXH.Settings.PCFormula.Hint": "Cálculo de Puntos de Complejidad: Nivel + INT + floor(PER/2). Ajusta si difiere.",
-  "HXH.Chat.HatsuActivated": "Hatsu activado: {{name}} (Coste PC: {{cost}})",
-  "HXH.Chat.HatsuDeactivated": "Hatsu desactivado: {{name}}",
-  "HXH.Prompt.PCExceeded": "Excede los PC disponibles ({{used}}/{{total}})."
+  "HXH": {
+    "Sheet": "Hoja de Personaje HxH",
+    "Tabs": {
+      "Summary": "Resumen",
+      "Attributes": "Características",
+      "Nen": "Nen",
+      "Inventory": "Inventario"
+    },
+    "Roll": "Tirar",
+    "Attack": "Ataque",
+    "Damage": "Daño",
+    "Advantage": "Ventaja",
+    "Disadvantage": "Desventaja",
+    "Aura": {
+      "Offense": "Aura Ofensiva",
+      "Defense": "Aura Defensiva"
+    },
+    "Settings": {
+      "RollMode": {
+        "Name": "Modo de tiradas",
+        "Hint": "Define la modalidad de tiradas por defecto",
+        "d20": "d20 (bono+rango)",
+        "d100": "d100 (por debajo del objetivo)"
+      }
+    },
+    "Logger": {
+      "ErrorPrefix": "HXH | Error:",
+      "WarnPrefix": "HXH | Aviso:",
+      "InfoPrefix": "HXH | Info:"
+    },
+    "Chat": {
+      "SkillRoll": "Tirada de {{skill}}",
+      "AttackRoll": "Ataque con {{name}}",
+      "HatsuActivated": "Hatsu activado: {{name}} (PC {{pc}})",
+      "HatsuDeactivated": "Hatsu desactivado: {{name}}"
+    },
+    "Errors": {
+      "OverPC": "No tienes suficientes PC disponibles (necesario {{need}}, disponible {{avail}}).",
+      "AuraOverflow": "La suma de Aura ofensiva y defensiva excede el máximo ({{total}}/{{max}})."
+    }
+  }
 }

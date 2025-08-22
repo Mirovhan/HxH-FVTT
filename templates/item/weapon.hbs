@@ -1,0 +1,15 @@
+
+<section class="pane">
+  <div class="card">
+    <h2>{{document.name}}</h2>
+    <div class="grid grid-3">
+      <label>Habilidad <input type="text" name="system.skill" value="{{system.skill}}"/></label>
+      <label>Atributo <input type="text" name="system.ability" value="{{system.ability}}"/></label>
+      <label>Bon. Ataque <input type="number" name="system.attack.bonus" value="{{system.attack.bonus}}"/></label>
+      <label>Ventaja (-1/0/1) <input type="number" name="system.attack.adv" value="{{system.attack.adv}}"/></label>
+      <label>Daño <input type="text" name="system.damage.formula" value="{{system.damage.formula}}" placeholder="1d6 + @abilBonus + @auraOff"/></label>
+      <label>Alcance <input type="text" name="system.range" value="{{system.range}}"/></label>
+    </div>
+    <textarea name="system.description">{{system.description}}</textarea>
+  </div>
+</section>

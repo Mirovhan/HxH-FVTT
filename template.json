@@ -10,94 +10,140 @@
           "concept": "",
           "origin": "",
           "faction": "",
-          "level": 1
-        },
-        "attributes": {
-          "aura": {
-            "value": 10,
-            "max": 10
-          },
-          "stamina": {
-            "value": 10,
-            "max": 10
-          },
-          "initiative": {
-            "value": 0
-          }
+          "level": 1,
+          "xp": 0
         },
         "abilities": {
-          "int": {
-            "label": "Inteligencia",
-            "value": 0
-          },
-          "per": {
-            "label": "Percepción",
-            "value": 0
-          },
-          "str": {
+          "fue": {
             "label": "Fuerza",
-            "value": 0
+            "value": 2,
+            "bonus": 0
           },
-          "agi": {
-            "label": "Agilidad",
-            "value": 0
+          "des": {
+            "label": "Destreza",
+            "value": 2,
+            "bonus": 0
           },
           "con": {
             "label": "Constitución",
-            "value": 0
+            "value": 2,
+            "bonus": 0
           },
-          "cha": {
+          "int": {
+            "label": "Inteligencia",
+            "value": 2,
+            "bonus": 0
+          },
+          "per": {
+            "label": "Percepción",
+            "value": 2,
+            "bonus": 0
+          },
+          "car": {
             "label": "Carisma",
-            "value": 0
+            "value": 2,
+            "bonus": 0
+          }
+        },
+        "derived": {
+          "fortaleza": 0,
+          "reflejos": 0,
+          "voluntad": 0,
+          "experticia": 1
+        },
+        "resources": {
+          "vida": {
+            "value": 10,
+            "max": 10
+          },
+          "energia": {
+            "value": 5,
+            "max": 5
           }
         },
         "skills": {
-          "investigacion": {
-            "label": "Investigación",
-            "rank": 0,
-            "ability": "int"
+          "acrobacias": {
+            "label": "Acrobacias",
+            "ability": "des",
+            "ranks": 0
           },
-          "percepcion": {
-            "label": "Percepción",
-            "rank": 0,
-            "ability": "per"
-          },
-          "sigilo": {
-            "label": "Sigilo",
-            "rank": 0,
-            "ability": "agi"
+          "actuar": {
+            "label": "Actuar",
+            "ability": "car",
+            "ranks": 0
           },
           "atletismo": {
             "label": "Atletismo",
-            "rank": 0,
-            "ability": "str"
+            "ability": "fue",
+            "ranks": 0
           },
-          "punteria": {
-            "label": "Puntería",
-            "rank": 0,
-            "ability": "per"
+          "buscar": {
+            "label": "Buscar",
+            "ability": "per",
+            "ranks": 0
+          },
+          "comprender": {
+            "label": "Comprender",
+            "ability": "int",
+            "ranks": 0
+          },
+          "esconder": {
+            "label": "Esconder",
+            "ability": "des",
+            "ranks": 0
+          },
+          "trucos": {
+            "label": "Trucos",
+            "ability": "des",
+            "ranks": 0
+          },
+          "percibir": {
+            "label": "Percibir",
+            "ability": "per",
+            "ranks": 0
+          },
+          "perspicacia": {
+            "label": "Perspicacia",
+            "ability": "per",
+            "ranks": 0
+          },
+          "persuadir": {
+            "label": "Persuadir",
+            "ability": "car",
+            "ranks": 0
+          },
+          "sigilo": {
+            "label": "Sigilo",
+            "ability": "des",
+            "ranks": 0
+          },
+          "tenacidad": {
+            "label": "Tenacidad",
+            "ability": "con",
+            "ranks": 0
           }
         },
         "nen": {
-          "puntos": {
-            "total": 0,
+          "pc": {
+            "total": 6,
             "usados": 0
           },
-          "tecnicas": {
-            "ten": 0,
-            "zetsu": 0,
-            "ren": 0,
-            "gyo": 0,
-            "ko": 0,
-            "shu": 0
+          "aura": {
+            "max": 10,
+            "ofensiva": 0,
+            "defensiva": 0
           },
-          "afinidades": {
-            "intensificacion": 0,
-            "emision": 0,
-            "manipulacion": 0,
-            "transmutacion": 0,
-            "materializacion": 0,
-            "especializacion": 0
+          "apps": {
+            "ten": false,
+            "ren": false,
+            "zetsu": false,
+            "shu": false,
+            "gyo": false,
+            "ken": false,
+            "kou": false,
+            "ryu": false,
+            "in": false,
+            "en": false
           }
         }
       }
@@ -115,61 +161,63 @@
   },
   "Item": {
     "types": [
-      "hatsu",
-      "talento",
-      "dote",
-      "arma",
-      "armadura",
-      "equipo"
+      "weapon",
+      "armor",
+      "equipment",
+      "hatsu"
     ],
     "templates": {
       "base": {
-        "description": "",
-        "tags": []
+        "description": ""
+      }
+    },
+    "weapon": {
+      "templates": [
+        "base"
+      ],
+      "system": {
+        "skill": "atletismo",
+        "ability": "fue",
+        "attack": {
+          "bonus": 0,
+          "adv": 0
+        },
+        "damage": {
+          "formula": "1d6 + @abilBonus"
+        },
+        "range": "cuerpo a cuerpo"
+      }
+    },
+    "armor": {
+      "templates": [
+        "base"
+      ],
+      "system": {
+        "ac": 0,
+        "notes": ""
+      }
+    },
+    "equipment": {
+      "templates": [
+        "base"
+      ],
+      "system": {
+        "quantity": 1
       }
     },
     "hatsu": {
       "templates": [
         "base"
       ],
-      "enabled": false,
-      "pc": {
-        "base": 1,
-        "mods": []
-      },
-      "activacion": "",
-      "efecto": ""
-    },
-    "talento": {
-      "templates": [
-        "base"
-      ]
-    },
-    "dote": {
-      "templates": [
-        "base"
-      ]
-    },
-    "arma": {
-      "templates": [
-        "base"
-      ],
-      "danio": "",
-      "alcance": "",
-      "propiedades": ""
-    },
-    "armadura": {
-      "templates": [
-        "base"
-      ],
-      "defensa": 0,
-      "penalizador": 0
-    },
-    "equipo": {
-      "templates": [
-        "base"
-      ],
-      "peso": 0
+      "system": {
+        "pc": {
+          "base": 1,
+          "mods": []
+        },
+        "enabled": false,
+        "auraCost": 0,
+        "notes": ""
+      }
     }
   }
 }

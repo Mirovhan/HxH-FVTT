@@ -1,0 +1,21 @@
+
+<section class="pane">
+  <div class="card">
+    <h2>{{document.name}}</h2>
+    <div class="grid grid-3">
+      <label>PC base <input type="number" name="system.pc.base" value="{{system.pc.base}}"/></label>
+      <label>Aura costo <input type="number" name="system.auraCost" value="{{system.auraCost}}"/></label>
+      <label>Activo <input type="checkbox" name="system.enabled" {{#if system.enabled}}checked{{/if}}/></label>
+    </div>
+    <div class="mods">
+      <h3>Modificadores de PC</h3>
+      {{#each system.pc.mods as |m idx|}}
+        <div class="mod-row">
+          <input type="text" name="system.pc.mods.{{idx}}.label" value="{{m.label}}" placeholder="Etiqueta"/>
+          <input type="number" name="system.pc.mods.{{idx}}.value" value="{{m.value}}" placeholder="Valor"/>
+        </div>
+      {{/each}}
+    </div>
+    <textarea name="system.notes">{{system.notes}}</textarea>
+  </div>
+</section>

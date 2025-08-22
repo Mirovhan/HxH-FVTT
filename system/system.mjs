@@ -1,0 +1,48 @@
+
+import { HXHActorSheet } from "./sheets/actor-sheet.mjs";
+import { HXHItem } from "./items/hxh-item.mjs";
+import { HXHItemSheet, HXHWeaponSheet, HXHArmorSheet, HXHHatsuSheet } from "./items/item-sheets.mjs";
+import { HXHLog } from "./utils/logger.mjs";
+
+Hooks.once("init", function() {
+  HXHLog.info("Init v13 HxH 1.8B");
+
+  // Docs
+  CONFIG.Item.documentClass = HXHItem;
+
+  // Settings
+  game.settings.register("hxh-1-8b", "rollMode", {
+    name: "HXH.Settings.RollMode.Name",
+    hint: "HXH.Settings.RollMode.Hint",
+    scope: "world",
+    config: true,
+    type: String,
+    choices: {"d20":"HXH.Settings.RollMode.d20", "d100":"HXH.Settings.RollMode.d100"},
+    default: "d20"
+  });
+
+  // Load templates
+  loadTemplates([
+    "systems/hxh-1-8b/templates/actor/actor.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/summary.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/attributes.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/nen.hbs",
+    "systems/hxh-1-8b/templates/actor/parts/inventory.hbs",
+    "systems/hxh-1-8b/templates/item/item.hbs",
+    "systems/hxh-1-8b/templates/item/weapon.hbs",
+    "systems/hxh-1-8b/templates/item/armor.hbs",
+    "systems/hxh-1-8b/templates/item/hatsu.hbs"
+  ]);
+
+  // Register sheets
+  foundry.documents.collections.Actors.registerSheet("hxh-1-8b", HXHActorSheet, { types:["character","npc"], makeDefault:true });
+  Items.registerSheet("hxh-1-8b", HXHItemSheet, { types:["equipment"], makeDefault: true });
+  Items.registerSheet("hxh-1-8b", HXHWeaponSheet, { types:["weapon"], makeDefault: true });
+  Items.registerSheet("hxh-1-8b", HXHArmorSheet, { types:["armor"], makeDefault: true });
+  Items.registerSheet("hxh-1-8b", HXHHatsuSheet, { types:["hatsu"], makeDefault: true });
+
+  // Handlebars helpers
+  Handlebars.registerHelper("eq", (a,b)=> a===b);
+  Handlebars.registerHelper("gt", (a,b)=> (Number(a)||0) > (Number(b)||0));
+  Handlebars.registerHelper("sum", (...vals)=> vals.slice(0,-1).map(Number).reduce((a,b)=>a+b,0));
+});

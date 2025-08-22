@@ -1,40 +1,34 @@
 {
   "id": "hxh-1-8b",
   "title": "Hunter × Hunter TTRPG (1.8B)",
-  "description": "Sistema para jugar Hunter × Hunter 1.8B en Foundry VTT v13: hoja de personaje, tiradas d20/d100 y Hatsus con PC.",
-  "version": "0.5.2",
+  "version": "0.6.0",
+  "description": "Sistema de Hunter × Hunter (1.8B) para Foundry VTT v13 (no oficial).",
   "compatibility": {
     "minimum": "13",
-    "verified": "13.347"
+    "verified": "13.341"
   },
   "authors": [
     {
-      "name": "Mirovhan"
+      "name": "Mirovhan & colaboradores"
     }
   ],
-  "url": "https://github.com/Mirovhan/HxH-RPG",
-  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-RPG/releases/latest/download/hxh-1-8b.zip",
   "esmodules": [
-    "system/system.js"
+    "system/system.mjs"
   ],
   "styles": [
     "styles/system.css"
   ],
+  "packs": [],
   "languages": [
     {
       "lang": "es",
       "name": "Español",
       "path": "lang/es.json"
-    },
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
     }
   ],
   "grid": {
     "distance": 1,
-    "units": "m"
+    "units": "m",
+    "type": 1
   }
 }

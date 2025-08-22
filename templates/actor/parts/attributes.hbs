@@ -1,0 +1,21 @@
+
+<section class="pane two-cols">
+  <div class="card">
+    <h2>Características</h2>
+    <div class="grid grid-3">
+      {{#each system.abilities as |ab key|}}
+        <label>{{ab.label}} <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}"/></label>
+        <label>B.{{key}} <input type="number" name="system.abilities.{{key}}.bonus" value="{{ab.bonus}}"/></label>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Movimiento y Vista</h2>
+    <div class="grid grid-2">
+      <label>Caminar (cas/turno) <input type="number" name="system.movement.walk" value="{{system.movement.walk}}" placeholder="4"/></label>
+      <label>Correr (cas/turno) <input type="number" name="system.movement.run" value="{{system.movement.run}}" placeholder="8"/></label>
+      <label>Radio de percepción <input type="number" name="system.senses.per" value="{{system.senses.per}}" placeholder="Percepción"/></label>
+    </div>
+  </div>
+</section>
