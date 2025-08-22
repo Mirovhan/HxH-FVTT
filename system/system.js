@@ -43,35 +43,14 @@ Hooks.once("init", async function () {
   
 });
 
-// Register sheets using v13 API
-
-
-
-
-
-// Register sheets (v13) with fallback
-console.log("HXH 1.8B | Registering sheets...");
-try {
-  if (globalThis.DocumentSheetConfig?.registerSheet) {
-    DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
-      types: ["character", "npc"],
-      makeDefault: true,
-      label: "HXH.ActorSheet"
-    });
-    DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
-      types: ["hatsu"],
-      makeDefault: true
-    });
-    console.log("HXH 1.8B | Sheets registered via DocumentSheetConfig");
-  } else {
-    Actors.registerSheet("hxh-1-8b", HxHActorSheet, {
-      types: ["character", "npc"], makeDefault: true, label: "HXH.ActorSheet"
-    });
-    Items.registerSheet("hxh-1-8b", HxHHatsuSheet, {
-      types: ["hatsu"], makeDefault: true
-    });
-    console.log("HXH 1.8B | Sheets registered via legacy API");
-  }
-} catch (e) {
-  console.error("HXH 1.8B | Sheet registration failed:", e);
-}
+// Register sheets (v13 API only)
+console.log("HXH 1.8B | Registering sheets (v13)");
+DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HxHActorSheet, {
+  types: ["character", "npc"],
+  makeDefault: true,
+  label: "HXH.ActorSheet"
+});
+DocumentSheetConfig.registerSheet(Item, "hxh-1-8b", HxHHatsuSheet, {
+  types: ["hatsu"],
+  makeDefault: true
+});

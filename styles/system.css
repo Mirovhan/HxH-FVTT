@@ -18,3 +18,5 @@
 .hxh-actor-sheet .items-list .item { padding: 4px; border-bottom: 1px solid var(--color-border-light-2); }
 .hxh-hatsu-row { display: grid; grid-template-columns: 24px 1fr auto auto; gap: 8px; align-items: center; }
 .hxh-hatsu-row .toggle { cursor: pointer; }
+
+.hxh-actor-sheet .tabs .item.active { border-bottom: 2px solid var(--color-border-highlight); font-weight: 600; }

@@ -24,6 +24,21 @@ export class HxHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
   
 activateListeners(element) {
   super.activateListeners(element);
+  // Manual tabs always active (even if not editable)
+  const nav = element.querySelector('.tabs');
+  if (nav) {
+    nav.querySelectorAll('[data-tab]').forEach(a => {
+      a.addEventListener('click', ev => {
+        ev.preventDefault();
+        const tab = ev.currentTarget.dataset.tab;
+        this._showTab(element, tab);
+      });
+    });
+  }
+  // Ensure default visible
+  this._showTab(element, 'resumen');
+
+  // Only gate interactive actions after tabs are set up
   if (!this.isEditable) return;
 
   // Manual tabs handler (robust across themes/versions)
