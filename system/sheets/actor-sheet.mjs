@@ -1,8 +1,9 @@
+const { HandlebarsApplicationMixin } = foundry.applications.api;
 
 import { HXHLog } from "../utils/logger.mjs";
 import { rollD20, sendRollMessage, abilBonus, skillRanks } from "../utils/dice.mjs";
 
-export class HXHActorSheet extends foundry.applications.sheets.ActorSheetV2 {
+export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     ...super.DEFAULT_OPTIONS,
     id: "hxh-actor",
