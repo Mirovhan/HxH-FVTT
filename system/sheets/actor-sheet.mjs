@@ -54,7 +54,19 @@ export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
     // Debug log
     try { console.log("HXH bind listeners for", this.id, root); } catch {}
 
-    root.addEventListener("click", HXHLog.safe(async (ev) => {
+    // Persist any field with name on change
+root.addEventListener("change", HXHLog.safe(async (ev) => {
+  const el = ev.target.closest("input,select,textarea");
+  if (!el || !el.name) return;
+  let v;
+  if (el.type === "checkbox") v = el.checked;
+  else if (el.type === "number") v = Number(el.value ?? 0);
+  else v = el.value;
+  await this.document.update({ [el.name]: v });
+}, "persist-change"));
+
+// Actions and tabs
+root.addEventListener("click", HXHLog.safe(async (ev) => {
       // Tabs
       const tabA = ev.target.closest(".tabs .item[data-tab]");
       if (tabA) { ev.preventDefault(); this._showTab(html, tabA.dataset.tab); return; }
