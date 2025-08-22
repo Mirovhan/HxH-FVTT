@@ -1,5 +1,6 @@
+
 <form class="hxh-form" autocomplete="off">
-<section class="hxh-actor-root">
+<section class="hxh-actor-root" data-actor-id="{{document.id}}">
   <header class="sheet-header">
     <img class="profile" src="{{document.img}}" data-edit="img"/>
     <div class="header-fields">
@@ -32,21 +33,21 @@
           <label>Fortaleza</label>
           <div class="row">
             <input type="number" name="system.derived.fortaleza" value="{{system.derived.fortaleza}}"/>
-            <button type="button" class="dice-btn" data-action="roll-save" data-key="fortaleza" title="Tirada de Salvación: Fortaleza">🎲</button>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="fortaleza">🎲</button>
           </div>
         </div>
         <div class="save">
           <label>Reflejos</label>
           <div class="row">
             <input type="number" name="system.derived.reflejos" value="{{system.derived.reflejos}}"/>
-            <button type="button" class="dice-btn" data-action="roll-save" data-key="reflejos" title="Tirada de Salvación: Reflejos">🎲</button>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="reflejos">🎲</button>
           </div>
         </div>
         <div class="save">
           <label>Voluntad</label>
           <div class="row">
             <input type="number" name="system.derived.voluntad" value="{{system.derived.voluntad}}"/>
-            <button type="button" class="dice-btn" data-action="roll-save" data-key="voluntad" title="Tirada de Salvación: Voluntad">🎲</button>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="voluntad">🎲</button>
           </div>
         </div>
       </div>
@@ -57,7 +58,7 @@
       <div class="grid grid-3">
         {{#each system.abilities as |ab key|}}
           <label>{{ab.label}} <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}"/></label>
-          <label>Bonus {{cap key}} <div class="row"><input type="number" name="system.abilities.{{key}}.bonus" value="{{ab.bonus}}"/><button type="button" class="dice-btn" data-action="roll-ability" data-key="{{key}}" title="Chequeo de {{ab.label}}">🎲</button></div></label>
+          <label>Bonus {{cap key}} <div class="row"><input type="number" name="system.abilities.{{key}}.bonus" value="{{ab.bonus}}"/><button type="button" class="dice-btn" data-action="roll-ability" data-key="{{key}}">🎲</button></div></label>
         {{/each}}
       </div>
     </div>
@@ -95,7 +96,7 @@
             <div class="hatsu-name">{{it.name}}</div>
             <div class="hatsu-cost">PC base: {{it.system.pc.base}}</div>
             <div class="hatsu-actions">
-              <button type="button" class="dice-btn" data-action="roll-hatsu" data-id="{{it.id}}" title="Tirada de Hatsu">🎲</button>
+              <button type="button" class="dice-btn" data-action="roll-hatsu" data-id="{{it.id}}">🎲</button>
             </div>
           </div>
         {{/each}}
@@ -110,8 +111,8 @@
             <div class="item-name">{{w.name}}</div>
             <div class="item-meta">{{w.system.damage.formula}}</div>
             <div class="item-actions">
-              <button type="button" class="dice-btn" data-action="attack-weapon" data-id="{{w.id}}" title="Tirada de Ataque">🎲</button>
-              <button type="button" class="dice-btn" data-action="damage-weapon" data-id="{{w.id}}" title="Tirada de Daño">💥</button>
+              <button type="button" class="dice-btn" data-action="attack-weapon" data-id="{{w.id}}">🎲</button>
+              <button type="button" class="dice-btn" data-action="damage-weapon" data-id="{{w.id}}">💥</button>
             </div>
           </div>
         {{/each}}
