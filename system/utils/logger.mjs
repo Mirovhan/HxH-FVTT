@@ -1,22 +1,8 @@
-
 export const HXHLog = {
-  info(...args) {
-    console.log("%cHXH","color:#4b9;font-weight:bold", ...args);
-  },
-  warn(...args) {
-    console.warn("%cHXH","color:#db0;font-weight:bold", ...args);
-  },
-  error(...args) {
-    console.error("%cHXH","color:#e33;font-weight:bold", ...args);
-    try { ui.notifications?.error(["HXH", ...args].join(" ")); } catch {}
-  },
-  safe(fn, context="") {
-    return async (...args)=>{
-      try { return await fn.apply(this, args); }
-      catch (e) {
-        this.error("Excepción", context, e?.message || e);
-        console.error(e);
-      }
-    };
+  info: (...a)=>{ console.log("HXH", ...a); },
+  warn: (...a)=>{ console.warn("HXH", ...a); ui.notifications?.warn(a.map(String).join(" ")); },
+  error: (...a)=>{ console.error("HXH", ...a); ui.notifications?.error(a.map(String).join(" ")); },
+  safe: (fn, ctx="") => (ev) => {
+    try { return fn(ev); } catch (e) { console.error("HXH Unhandled:", ctx, e); ui.notifications?.error(`HXH Unhandled ${ctx}: ${e?.message||e}`); }
   }
 };

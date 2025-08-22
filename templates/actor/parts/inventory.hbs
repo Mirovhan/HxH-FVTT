@@ -1,4 +1,3 @@
-
 <section class="pane two-cols">
   <div class="card">
     <h2>Armas</h2>
@@ -7,7 +6,8 @@
         <div class="item-name">{{w.name}}</div>
         <div class="item-prop">{{w.system.damage.formula}}</div>
         <div class="item-actions">
-          <button type="button" data-action="attack-weapon" data-id="{{w.id}}">{{localize "HXH.Attack"}}</button>
+          <button type="button" class="dice-btn" data-action="attack-weapon" data-id="{{w.id}}" title="Tirada de Ataque">🎲</button>
+          <button type="button" class="dice-btn" data-action="damage-weapon" data-id="{{w.id}}" title="Tirada de Daño">💥</button>
         </div>
       </div>
     {{/each}}

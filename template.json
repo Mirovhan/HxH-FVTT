@@ -10,39 +10,65 @@
           "concept": "",
           "origin": "",
           "faction": "",
-          "level": 1,
-          "xp": 0
+          "level": 1
         },
         "abilities": {
           "fue": {
             "label": "Fuerza",
-            "value": 2,
+            "value": 10,
             "bonus": 0
           },
           "des": {
             "label": "Destreza",
-            "value": 2,
+            "value": 10,
             "bonus": 0
           },
           "con": {
             "label": "Constitución",
-            "value": 2,
-            "bonus": 0
-          },
-          "int": {
-            "label": "Inteligencia",
-            "value": 2,
+            "value": 10,
             "bonus": 0
           },
           "per": {
             "label": "Percepción",
-            "value": 2,
+            "value": 10,
+            "bonus": 0
+          },
+          "int": {
+            "label": "Inteligencia",
+            "value": 10,
             "bonus": 0
           },
           "car": {
             "label": "Carisma",
-            "value": 2,
+            "value": 10,
             "bonus": 0
+          }
+        },
+        "skills": {
+          "investigacion": {
+            "label": "Investigación",
+            "ability": "int",
+            "ranks": 0
+          },
+          "sigilo": {
+            "label": "Sigilo",
+            "ability": "des",
+            "ranks": 0
+          },
+          "punteria": {
+            "label": "Puntería",
+            "ability": "per",
+            "ranks": 0
+          },
+          "percepcion": {
+            "label": "Percepción",
+            "ability": "per",
+            "ranks": 0
+          },
+          "atletismo": {
+            "label": "Atletismo",
+            "ability": "fue",
+            "ranks": 0
           }
         },
         "derived": {
@@ -53,97 +79,21 @@
         },
         "resources": {
           "vida": {
-            "value": 10,
-            "max": 10
+            "value": 25
           },
           "energia": {
-            "value": 5,
-            "max": 5
-          }
-        },
-        "skills": {
-          "acrobacias": {
-            "label": "Acrobacias",
-            "ability": "des",
-            "ranks": 0
-          },
-          "actuar": {
-            "label": "Actuar",
-            "ability": "car",
-            "ranks": 0
-          },
-          "atletismo": {
-            "label": "Atletismo",
-            "ability": "fue",
-            "ranks": 0
-          },
-          "buscar": {
-            "label": "Buscar",
-            "ability": "per",
-            "ranks": 0
-          },
-          "comprender": {
-            "label": "Comprender",
-            "ability": "int",
-            "ranks": 0
-          },
-          "esconder": {
-            "label": "Esconder",
-            "ability": "des",
-            "ranks": 0
-          },
-          "trucos": {
-            "label": "Trucos",
-            "ability": "des",
-            "ranks": 0
-          },
-          "percibir": {
-            "label": "Percibir",
-            "ability": "per",
-            "ranks": 0
-          },
-          "perspicacia": {
-            "label": "Perspicacia",
-            "ability": "per",
-            "ranks": 0
-          },
-          "persuadir": {
-            "label": "Persuadir",
-            "ability": "car",
-            "ranks": 0
-          },
-          "sigilo": {
-            "label": "Sigilo",
-            "ability": "des",
-            "ranks": 0
-          },
-          "tenacidad": {
-            "label": "Tenacidad",
-            "ability": "con",
-            "ranks": 0
+            "value": 2
           }
         },
         "nen": {
           "pc": {
-            "total": 6,
+            "total": 0,
             "usados": 0
           },
           "aura": {
-            "max": 10,
+            "max": 0,
             "ofensiva": 0,
             "defensiva": 0
-          },
-          "apps": {
-            "ten": false,
-            "ren": false,
-            "zetsu": false,
-            "shu": false,
-            "gyo": false,
-            "ken": false,
-            "kou": false,
-            "ryu": false,
-            "in": false,
-            "en": false
           }
         }
       }
@@ -166,57 +116,27 @@
       "equipment",
       "hatsu"
     ],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
     "weapon": {
-      "templates": [
-        "base"
-      ],
-      "system": {
-        "skill": "atletismo",
-        "ability": "fue",
-        "attack": {
-          "bonus": 0,
-          "adv": 0
-        },
-        "damage": {
-          "formula": "1d6 + @abilBonus"
-        },
-        "range": "cuerpo a cuerpo"
+      "ability": "fue",
+      "skill": "atletismo",
+      "attack": {
+        "bonus": 0
+      },
+      "damage": {
+        "formula": "1d6 + @abilBonus + @auraOff"
       }
     },
     "armor": {
-      "templates": [
-        "base"
-      ],
-      "system": {
-        "ac": 0,
-        "notes": ""
-      }
+      "ac": 1
     },
     "equipment": {
-      "templates": [
-        "base"
-      ],
-      "system": {
-        "quantity": 1
-      }
+      "quantity": 1
     },
     "hatsu": {
-      "templates": [
-        "base"
-      ],
-      "system": {
-        "pc": {
-          "base": 1,
-          "mods": []
-        },
-        "enabled": false,
-        "auraCost": 0,
-        "notes": ""
+      "enabled": false,
+      "pc": {
+        "base": 1,
+        "mods": []
       }
     }
   }

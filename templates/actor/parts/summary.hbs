@@ -1,4 +1,3 @@
-
 <section class="pane two-cols">
   <div class="card">
     <h2>Recursos</h2>
@@ -11,25 +10,28 @@
 
   <div class="card">
     <h2>Derivadas</h2>
-    <div class="grid grid-3">
-      <label>Fortaleza <input type="number" name="system.derived.fortaleza" value="{{derived.fortaleza}}"/></label>
-      <label>Reflejos <input type="number" name="system.derived.reflejos" value="{{derived.reflejos}}"/></label>
-      <label>Voluntad <input type="number" name="system.derived.voluntad" value="{{derived.voluntad}}"/></label>
-    </div>
-  </div>
-
-  <div class="card full">
-    <h2>Habilidades</h2>
-    <div class="skills">
-      {{#each system.skills as |sk key|}}
-        <div class="skill-row">
-          <div class="skill-name">{{sk.label}}</div>
-          <div class="skill-abil">{{sk.ability}}</div>
-          <div class="skill-ranks"><input type="number" name="system.skills.{{key}}.ranks" value="{{sk.ranks}}" min="0" max="{{../ranksMax}}"/></div>
-          <div class="skill-roll"><button type="button" data-action="roll-skill" data-key="{{key}}" data-abil="{{sk.ability}}">{{localize "HXH.Roll"}}</button></div>
+    <div class="grid grid-3 saves">
+      <div class="save">
+        <label>Fortaleza</label>
+        <div class="row">
+          <input type="number" name="system.derived.fortaleza" value="{{derived.fortaleza}}"/>
+          <button type="button" class="dice-btn" data-action="roll-save" data-save="fortaleza" title="Tirada de Salvación: Fortaleza">🎲</button>
         </div>
-      {{/each}}
+      </div>
+      <div class="save">
+        <label>Reflejos</label>
+        <div class="row">
+          <input type="number" name="system.derived.reflejos" value="{{derived.reflejos}}"/>
+          <button type="button" class="dice-btn" data-action="roll-save" data-save="reflejos" title="Tirada de Salvación: Reflejos">🎲</button>
+        </div>
+      </div>
+      <div class="save">
+        <label>Voluntad</label>
+        <div class="row">
+          <input type="number" name="system.derived.voluntad" value="{{derived.voluntad}}"/>
+          <button type="button" class="dice-btn" data-action="roll-save" data-save="voluntad" title="Tirada de Salvación: Voluntad">🎲</button>
+        </div>
+      </div>
     </div>
-    <small>Máximo rangos por habilidad: {{ranksMax}} (2 × Experticia)</small>
   </div>
 </section>

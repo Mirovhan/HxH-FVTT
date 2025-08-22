@@ -1,4 +1,3 @@
-
 <section class="pane two-cols">
   <div class="card">
     <h2>Nen & Aura</h2>
@@ -8,13 +7,8 @@
       <label>Aura Máxima <input type="number" name="system.nen.aura.max" value="{{system.nen.aura.max}}"/></label>
       <label>Aura Ofensiva <input type="number" name="system.nen.aura.ofensiva" value="{{system.nen.aura.ofensiva}}"/></label>
       <label>Aura Defensiva <input type="number" name="system.nen.aura.defensiva" value="{{system.nen.aura.defensiva}}"/></label>
-      <div class="aura-status {{#if ../auraWarn}}warn{{/if}}">{{localize "HXH.Aura.Offense"}} + {{localize "HXH.Aura.Defense"}} = {{sum system.nen.aura.ofensiva system.nen.aura.defensiva}} / {{system.nen.aura.max}}</div>
+      <div class="aura-status {{#if ../auraWarn}}warn{{/if}}">Of+Def = {{sum system.nen.aura.ofensiva system.nen.aura.defensiva}} / {{system.nen.aura.max}}</div>
       <button type="button" data-action="validate-aura">Validar distribución</button>
-    </div>
-    <div class="grid grid-3">
-      {{#each system.nen.apps as |v k|}}
-        <label><input type="checkbox" name="system.nen.apps.{{k}}" {{#if v}}checked{{/if}}/> {{k}}</label>
-      {{/each}}
     </div>
   </div>
 
@@ -25,7 +19,10 @@
         <div class="hatsu-row">
           <div class="hatsu-name">{{it.name}}</div>
           <div class="hatsu-cost">PC base: {{it.system.pc.base}}</div>
-          <div><button type="button" data-action="toggle-hatsu" data-id="{{it.id}}">{{#if it.system.enabled}}Desactivar{{else}}Activar{{/if}}</button></div>
+          <div class="hatsu-actions">
+            <button type="button" class="dice-btn" data-action="roll-hatsu" data-id="{{it.id}}" title="Tirada de Hatsu">🎲</button>
+            <button type="button" data-action="toggle-hatsu" data-id="{{it.id}}">{{#if it.system.enabled}}Desactivar{{else}}Activar{{/if}}</button>
+          </div>
         </div>
       {{/each}}
     </div>

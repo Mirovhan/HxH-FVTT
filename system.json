@@ -1,8 +1,8 @@
 {
   "id": "hxh-1-8b",
   "title": "Hunter × Hunter TTRPG (1.8B)",
-  "version": "0.7.1",
-  "description": "Sistema de Hunter × Hunter (1.8B) para Foundry VTT v13 (no oficial).",
+  "version": "0.7.2",
+  "description": "Sistema no oficial de Hunter × Hunter (1.8B) para Foundry VTT v13.",
   "compatibility": {
     "minimum": "13",
     "verified": "13.341"
@@ -18,7 +18,6 @@
   "styles": [
     "styles/system.css"
   ],
-  "packs": [],
   "languages": [
     {
       "lang": "es",
@@ -34,5 +33,6 @@
   "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json",
   "download": "https://github.com/Mirovhan/HxH-RPG/releases/latest/download/hxh-1-8b.zip",
   "url": "https://github.com/Mirovhan/HxH-RPG",
-  "license": "MIT"
+  "license": "MIT",
+  "template": "template.json"
 }
