@@ -1,7 +1,7 @@
 {
   "id": "hxh-1-8b",
   "title": "Hunter × Hunter TTRPG (1.8B)",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Sistema no oficial de Hunter × Hunter (1.8B) para Foundry VTT v13.",
   "compatibility": {
     "minimum": "13",

@@ -12,7 +12,26 @@ Hooks.once("init", () => {
     "systems/hxh-1-8b/templates/item/item.hbs"
   ]);
 
+  
+
+  // Handlebars helpers (needed by templates)
   try {
+    const H = Handlebars;
+    H.registerHelper("sum", (...vals) => vals.slice(0,-1).map(v => Number(v)||0).reduce((a,b)=>a+b, 0));
+    H.registerHelper("eq", (a,b) => a===b);
+    H.registerHelper("ne", (a,b) => a!==b);
+    H.registerHelper("gt", (a,b) => (Number(a)||0) > (Number(b)||0));
+    H.registerHelper("gte", (a,b) => (Number(a)||0) >= (Number(b)||0));
+    H.registerHelper("lt", (a,b) => (Number(a)||0) < (Number(b)||0));
+    H.registerHelper("lte", (a,b) => (Number(a)||0) <= (Number(b)||0));
+    H.registerHelper("and", (a,b) => a && b);
+    H.registerHelper("or", (a,b) => a || b);
+    H.registerHelper("not", (a) => !a);
+  } catch (e) {
+    console.error("HXH helpers registration failed", e);
+  }
+
+try {
     DocumentSheetConfig.registerSheet(Actor, "hxh-1-8b", HXHActorSheet, { types:["character","npc"], makeDefault:true });
     DocumentSheetConfig.registerSheet(Item,  "hxh-1-8b", HXHItemSheet,   { types:["equipment"], makeDefault:true });
     DocumentSheetConfig.registerSheet(Item,  "hxh-1-8b", HXHWeaponSheet,  { types:["weapon"], makeDefault:true });
