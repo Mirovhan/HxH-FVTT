@@ -59,24 +59,20 @@ export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
   }
 
   /** Instancia Tabs y listeners */
-  async _renderInner(data, options) {
-    const html = await super._renderInner(data, options);
-    try {
-      this._tabs = [new foundry.applications.ux.Tabs(
-        { navSelector: ".tabs[data-group='primary']", contentSelector: ".tab-content", initial: "summary" }, { app: this }
-      )];
-    } catch (e) {
-      HXHLog.warn("Tabs fallback", e);
-      // Fallback: mostrar summary
-      html.querySelectorAll(".tab").forEach(el => el.style.display="none");
-      const first = html.querySelector('.tab[data-tab="summary"]');
-      if (first) first.style.display = "block";
-    }
-    return html;
-  }
-
   activateListeners(html) {
     super.activateListeners(html);
+    // Manual Tabs to avoid theme/DOM issues
+    const nav = html.querySelector('.tabs');
+    if (nav) {
+      nav.querySelectorAll('[data-tab]').forEach(a => {
+        a.addEventListener('click', ev => {
+          ev.preventDefault();
+          const tab = ev.currentTarget.dataset.tab;
+          this._showTab(html, tab);
+        });
+      });
+    }
+    this._showTab(html, 'summary');
 
     // Tiradas de habilidades
     html.querySelectorAll("[data-action='roll-skill']").forEach(btn => {

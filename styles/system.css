@@ -32,3 +32,6 @@
 .hxh-actor-sheet .item-row, .hxh-actor-sheet .hatsu-row { display:grid; grid-template-columns: 1fr 1fr 120px; align-items:center; gap:6px; padding:4px 0; border-bottom: 1px dashed #2a3142; }
 .hxh-actor-sheet button { background:#212a3b; border:1px solid #2a3142; color:var(--hxh-text); border-radius:8px; padding:4px 10px; }
 .hxh-actor-sheet .aura-status.warn { color: var(--hxh-danger); font-weight: 700; }
+
+.hxh-actor-sheet .tab { display: none; }
+.hxh-actor-sheet .tab.active { display: block; }
