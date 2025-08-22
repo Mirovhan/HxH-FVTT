@@ -7,7 +7,8 @@ export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
   static DEFAULT_OPTIONS = {
     ...super.DEFAULT_OPTIONS,
     classes: ["hxh-1-8b","hxh-actor-sheet","sheet","actor"],
-    window: { title: "HXH" }
+    position: { width: 760, height: "auto" },
+    window: { title: "HXH", resizable: true, minimizable: true }
   };
 
   static PARTS = {
@@ -49,8 +50,11 @@ export class HXHActorSheet extends HandlebarsApplicationMixin(foundry.applicatio
 
   activateListeners(html) {
     super.activateListeners(html);
+    const root = (this.element instanceof HTMLElement ? this.element : html) || html;
+    // Debug log
+    try { console.log("HXH bind listeners for", this.id, root); } catch {}
 
-    html.addEventListener("click", HXHLog.safe(async (ev) => {
+    root.addEventListener("click", HXHLog.safe(async (ev) => {
       // Tabs
       const tabA = ev.target.closest(".tabs .item[data-tab]");
       if (tabA) { ev.preventDefault(); this._showTab(html, tabA.dataset.tab); return; }

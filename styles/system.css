@@ -23,3 +23,6 @@
 .skill-row { display:grid; grid-template-columns: 1fr auto auto auto; gap:6px; align-items:center; padding:4px 0; border-bottom:1px dashed #26334e; }
 .skill-row.head { font-weight:700; color:#8cf2b1; border-bottom:2px solid #2fd175; }
 .item-row { display:grid; grid-template-columns: 1fr auto auto; gap:8px; align-items:center; padding:4px 0; border-bottom:1px dashed #2a3a58; }
+
+.hxh-actor-sheet { min-width: 520px; }
+.hxh-actor-root .tabs .item { user-select:none; }
