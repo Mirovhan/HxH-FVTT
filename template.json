@@ -10,7 +10,8 @@
           "concept": "",
           "origin": "",
           "faction": "",
-          "level": 1
+          "level": 1,
+          "notes": ""
         },
         "abilities": {
           "fue": {
@@ -95,7 +96,8 @@
             "ofensiva": 0,
             "defensiva": 0
           }
-        }
+        },
+        "attacks": []
       }
     },
     "character": {
@@ -115,29 +117,6 @@
       "armor",
       "equipment",
       "hatsu"
-    ],
-    "weapon": {
-      "ability": "fue",
-      "skill": "atletismo",
-      "attack": {
-        "bonus": 0
-      },
-      "damage": {
-        "formula": "1d6 + @abilBonus + @auraOff"
-      }
-    },
-    "armor": {
-      "ac": 1
-    },
-    "equipment": {
-      "quantity": 1
-    },
-    "hatsu": {
-      "enabled": false,
-      "pc": {
-        "base": 1,
-        "mods": []
-      }
-    }
+    ]
   }
 }

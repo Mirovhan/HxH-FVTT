@@ -4,36 +4,124 @@
     <img class="profile" src="{{document.img}}" data-edit="img"/>
     <div class="header-fields">
       <h1 contenteditable="true" data-edit="name">{{document.name}}</h1>
-      <div class="grid grid-2">
+      <div class="grid grid-4">
         <label>Concepto <input type="text" name="system.details.concept" value="{{system.details.concept}}"/></label>
-        <label>Origen <input type="text" name="system.details.origin" value="{{system.details.origin}}"/></label>
-        <label>Facción <input type="text" name="system.details.faction" value="{{system.details.faction}}"/></label>
-        <label>Nivel <input type="number" name="system.details.level" value="{{system.details.level}}" min="1"/></label>
+        <label>Origen   <input type="text" name="system.details.origin"  value="{{system.details.origin}}"/></label>
+        <label>Facción  <input type="text" name="system.details.faction" value="{{system.details.faction}}"/></label>
+        <label>Nivel    <input type="number" min="1" name="system.details.level" value="{{system.details.level}}"/></label>
       </div>
     </div>
   </header>
 
-  <nav class="tabs" data-group="primary">
-    <a class="item active" data-tab="summary">Summary</a>
-    <a class="item" data-tab="attributes">Attributes</a>
-    <a class="item" data-tab="nen">Nen</a>
-    <a class="item" data-tab="inventory">Inventory</a>
-  </nav>
+  <div class="grid main-grid">
+    <div class="card">
+      <h2>Recursos</h2>
+      <div class="grid grid-3">
+        <label>Vida <input type="number" name="system.resources.vida.value" value="{{system.resources.vida.value}}"/></label>
+        <div class="helper">Máx: {{resourcesCalc.vidaMax}}</div>
+        <label>Energía Vital <input type="number" name="system.resources.energia.value" value="{{system.resources.energia.value}}"/></label>
+        <div class="helper">Máx: {{resourcesCalc.energiaMax}}</div>
+        <label>Experticia <input type="number" min="1" name="system.derived.experticia" value="{{experticia}}"/></label>
+      </div>
+    </div>
 
-  <section class="tab-content">
-    <div class="tab active" data-group="primary" data-tab="summary">
-      {{> "systems/hxh-1-8b/templates/actor/parts/summary.hbs"}}
+    <div class="card">
+      <h2>Derivadas</h2>
+      <div class="grid grid-3 saves">
+        <div class="save">
+          <label>Fortaleza</label>
+          <div class="row">
+            <input type="number" name="system.derived.fortaleza" value="{{system.derived.fortaleza}}"/>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="fortaleza" title="Tirada de Salvación: Fortaleza">🎲</button>
+          </div>
+        </div>
+        <div class="save">
+          <label>Reflejos</label>
+          <div class="row">
+            <input type="number" name="system.derived.reflejos" value="{{system.derived.reflejos}}"/>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="reflejos" title="Tirada de Salvación: Reflejos">🎲</button>
+          </div>
+        </div>
+        <div class="save">
+          <label>Voluntad</label>
+          <div class="row">
+            <input type="number" name="system.derived.voluntad" value="{{system.derived.voluntad}}"/>
+            <button type="button" class="dice-btn" data-action="roll-save" data-key="voluntad" title="Tirada de Salvación: Voluntad">🎲</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tab" data-group="primary" data-tab="attributes">
-      {{> "systems/hxh-1-8b/templates/actor/parts/attributes.hbs"}}
+
+    <div class="card">
+      <h2>Características</h2>
+      <div class="grid grid-3">
+        {{#each system.abilities as |ab key|}}
+          <label>{{ab.label}} <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}"/></label>
+          <label>Bonus {{cap key}} <div class="row"><input type="number" name="system.abilities.{{key}}.bonus" value="{{ab.bonus}}"/><button type="button" class="dice-btn" data-action="roll-ability" data-key="{{key}}" title="Chequeo de {{ab.label}}">🎲</button></div></label>
+        {{/each}}
+      </div>
     </div>
-    <div class="tab" data-group="primary" data-tab="nen">
-      {{> "systems/hxh-1-8b/templates/actor/parts/nen.hbs"}}
+
+    <div class="card">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div class="skill-row head"><div>Habilidad</div><div>Atrib.</div><div>Rangos</div><div></div></div>
+        {{#each system.skills as |sk key|}}
+          <div class="skill-row">
+            <div class="skill-name">{{sk.label}}</div>
+            <div class="skill-abil">{{sk.ability}}</div>
+            <div class="skill-ranks"><input type="number" name="system.skills.{{key}}.ranks" value="{{sk.ranks}}" min="0"/></div>
+            <div class="skill-roll"><button type="button" class="dice-btn" data-action="roll-skill" data-key="{{key}}">🎲</button></div>
+          </div>
+        {{/each}}
+      </div>
     </div>
-    <div class="tab" data-group="primary" data-tab="inventory">
-      {{> "systems/hxh-1-8b/templates/actor/parts/inventory.hbs"}}
+
+    <div class="card">
+      <h2>Nen & Aura</h2>
+      <div class="grid grid-4">
+        <label>PC Totales   <input type="number" name="system.nen.pc.total" value="{{system.nen.pc.total}}"/></label>
+        <label>PC Usados    <input type="number" name="system.nen.pc.usados" value="{{system.nen.pc.usados}}"/></label>
+        <label>Aura Máx     <input type="number" name="system.nen.aura.max" value="{{system.nen.aura.max}}"/></label>
+        <label>Ofensiva     <input type="number" name="system.nen.aura.ofensiva" value="{{system.nen.aura.ofensiva}}"/></label>
+        <label>Defensiva    <input type="number" name="system.nen.aura.defensiva" value="{{system.nen.aura.defensiva}}"/></label>
+        <div class="row"><button type="button" data-action="validate-aura">Validar distribución</button></div>
+      </div>
+
+      <div class="hatsus">
+        <h3>Hatsus (items tipo “hatsu”)</h3>
+        {{#each ../hatsus as |it|}}
+          <div class="hatsu-row">
+            <div class="hatsu-name">{{it.name}}</div>
+            <div class="hatsu-cost">PC base: {{it.system.pc.base}}</div>
+            <div class="hatsu-actions">
+              <button type="button" class="dice-btn" data-action="roll-hatsu" data-id="{{it.id}}" title="Tirada de Hatsu">🎲</button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
     </div>
-  </section>
+
+    <div class="card">
+      <h2>Equipo & Armas</h2>
+      <div class="item-list">
+        {{#each ../weapons as |w|}}
+          <div class="item-row">
+            <div class="item-name">{{w.name}}</div>
+            <div class="item-meta">{{w.system.damage.formula}}</div>
+            <div class="item-actions">
+              <button type="button" class="dice-btn" data-action="attack-weapon" data-id="{{w.id}}" title="Tirada de Ataque">🎲</button>
+              <button type="button" class="dice-btn" data-action="damage-weapon" data-id="{{w.id}}" title="Tirada de Daño">💥</button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="card full">
+      <h2>Notas</h2>
+      <textarea name="system.details.notes" rows="4">{{system.details.notes}}</textarea>
+    </div>
+  </div>
 </section>
-
 </form>
