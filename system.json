@@ -2,10 +2,12 @@
   "name": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "0.1.0",
+  "version": "1.0.1",
+  "coreVersion": "13",
   "compatibility": {
-    "minimum": "11",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "14"
   },
   "description": "Sistema personalizado para Foundry VTT (MVP: stats, salvaciones, disciplinas, armas, vida/energía).",
   "authors": [
@@ -16,8 +18,8 @@
       "name": "ChatGPT"
     }
   ],
-  "url": "https://github.com/Mirovhan/HxH-RPG",
-  "bugs": "https://github.com/Mirovhan/HxH-RPG/issues",
+  "url": "https://github.com/Mirovhan/HxH-FVTT",
+  "bugs": "https://github.com/Mirovhan/HxH-FVTT/issues",
   "license": "MIT",
   "esmodules": [
     "module/hxh-fvtt.js"
@@ -33,5 +35,7 @@
     }
   ],
   "packs": [],
+  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.0.1/hxh-fvtt-1.0.1.zip",
   "manifestPlusVersion": 1
 }

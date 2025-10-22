@@ -3,7 +3,6 @@ import { HxHCharacterSheet } from "./actor/sheets/character-sheet.js";
 
 Hooks.once("init", async function() {
   CONFIG.Actor.documentClass = HxHActor;
-  Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("hxh-fvtt", HxHCharacterSheet, { types: ["character"], makeDefault: true });
 
   Handlebars.registerHelper("concat", function() {
