@@ -1,27 +1,15 @@
 # HxH FVTT (Custom System)
 
-Sistema liviano para **Foundry VTT** (v13 b346 verificado; compatible 13–14) inspirado en una hoja previa de Roll20.
+**v1.0.2 — Hotfix Handlebars (v13)**
 
-> ✅ v1.0.1 (v13-ready): Stats, Salvaciones, Disciplinas (D/I/C), Armas (ataque/daño), Vida/Energía.
+- Se corrige el parcial `salv.hbs` eliminando subexpresión de nivel superior no soportada.
+- Compatibilidad v13 (b346) verificada.
 
 ## Instalación vía Manifest
-En Foundry VTT → **Sistemas** → **Instalar Sistema** → pega esta URL:
 ```
 https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json
 ```
-
-## Instalación manual (ZIP)
-Descarga el ZIP desde el Release:
+## ZIP del release
 ```
-https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.0.1/hxh-fvtt-1.0.1.zip
+https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.0.2/hxh-fvtt-1.0.2.zip
 ```
-Descomprime la carpeta en tu **Data/systems** de Foundry.
-
-## Roadmap
-- Habilidades Naturales (contador de rangos + validador).
-- Validador de Talentos/Dotes con requisitos.
-- Compendios de ejemplo.
-- Plantillas de chat “PowerCards”.
-
-## Licencia
-MIT — ver `LICENSE`.

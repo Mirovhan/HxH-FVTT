@@ -1,15 +1,3 @@
-# OS
+# standard ignores
 .DS_Store
-Thumbs.db
-
-# Node / tooling
 node_modules/
-dist/
-.vscode/
-.idea/
-*.log
-
-# Foundry caches
-Cache/
-Data/ 
-user-data/

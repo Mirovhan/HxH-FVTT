@@ -1,5 +1,5 @@
 <div class="salv">
   <label>{{localize (concat "hxh.salv." salvKey)}}</label>
-  <input type="number" name="system.salvaciones.{{salvKey}}.bonoEspecial" value="{{(lookup (lookup system.salvaciones salvKey) 'bonoEspecial')}}">
-  <span class="total">{{(lookup (lookup system.salvaciones salvKey) "total")}}</span>
+  <input type="number" name="system.salvaciones.{{salvKey}}.bonoEspecial" value="{{lookup (lookup system.salvaciones salvKey) 'bonoEspecial'}}">
+  <span class="total">{{lookup (lookup system.salvaciones salvKey) "total"}}</span>
 </div>
