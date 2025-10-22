@@ -5,32 +5,46 @@
     ],
     "templates": [],
     "character": {
+      "nombre": "",
       "nivel": 1,
       "experticia": 0,
+      "objetivo": "",
+      "defectos": "",
+      "origen": {
+        "tipo": "",
+        "subtipo": "",
+        "color": "#4a8f6e"
+      },
       "stats": {
         "fuerza": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         },
         "destreza": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         },
         "constitucion": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         },
         "inteligencia": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         },
         "percepcion": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         },
         "carisma": {
           "valor": 0,
-          "bono": 0
+          "bono": 0,
+          "origen": 0
         }
       },
       "salvaciones": {
@@ -56,14 +70,122 @@
         "total": 0,
         "actual": 0
       },
-      "habilidades": {
-        "naturales": {},
-        "rangosTotales": 0,
-        "rangosAsignados": 0
+      "evasiones": {
+        "base": 10,
+        "armaduras": [],
+        "total": 10
       },
+      "talentos": {
+        "slots": [
+          {
+            "needLevel": 2
+          },
+          {
+            "needLevel": 6
+          },
+          {
+            "needLevel": 10
+          },
+          {
+            "needLevel": 15
+          },
+          {
+            "needLevel": 20
+          }
+        ]
+      },
+      "dotes": {
+        "lista": []
+      },
+      "habilidadesNaturales": [
+        {
+          "nombre": "ACROBACIAS",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "ACTUAR",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "ATLETISMO",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "BUSCAR",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "COMPRENDER",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "ESCONDER",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "TRUCOS",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "PERCIBIR",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "PERSUADIR",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "PERSPICACIA",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "SIGILO",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        },
+        {
+          "nombre": "TENACIDAD",
+          "origen": 0,
+          "rangos": 0,
+          "extra": 0,
+          "total": 0
+        }
+      ],
       "disciplinas": {
         "diseno": {
-          "dado": "d4",
+          "dado": "1d4",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -72,7 +194,7 @@
           "totalC": 0
         },
         "criaturas": {
-          "dado": "d4",
+          "dado": "1d4",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -81,7 +203,7 @@
           "totalC": 0
         },
         "historia": {
-          "dado": "d4",
+          "dado": "1d4",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -90,7 +212,7 @@
           "totalC": 0
         },
         "tecnologia": {
-          "dado": "d4",
+          "dado": "1d4",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -99,7 +221,7 @@
           "totalC": 0
         },
         "medicina": {
-          "dado": "d4",
+          "dado": "1d4",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -108,7 +230,7 @@
           "totalC": 0
         },
         "mundo": {
-          "dado": "d4",
+          "dado": "1d20",
           "origen": 0,
           "rangos": 0,
           "especial": 0,
@@ -116,48 +238,6 @@
           "totalI": 0,
           "totalC": 0
         }
-      },
-      "talentos": {
-        "slots": [
-          {
-            "sel": "",
-            "bloq": true,
-            "warn": false,
-            "msg": "",
-            "needLevel": 2
-          },
-          {
-            "sel": "",
-            "bloq": true,
-            "warn": false,
-            "msg": "",
-            "needLevel": 6
-          },
-          {
-            "sel": "",
-            "bloq": true,
-            "warn": false,
-            "msg": "",
-            "needLevel": 10
-          },
-          {
-            "sel": "",
-            "bloq": true,
-            "warn": false,
-            "msg": "",
-            "needLevel": 15
-          },
-          {
-            "sel": "",
-            "bloq": true,
-            "warn": false,
-            "msg": "",
-            "needLevel": 20
-          }
-        ]
-      },
-      "dotes": {
-        "lista": []
       },
       "armas": []
     }

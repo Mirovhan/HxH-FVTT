@@ -1,15 +1,7 @@
-# HxH FVTT (Custom System)
+# HxH FVTT v1.1.0 — UI estilo Roll20
 
-**v1.0.2 — Hotfix Handlebars (v13)**
+- Rediseño de hoja para parecerse al layout de tus capturas de Roll20 (cards verdes, tablas, secciones).
+- Se corrige el problema de etiquetas no visibles usando etiquetas literales (i18n queda opcional).
 
-- Se corrige el parcial `salv.hbs` eliminando subexpresión de nivel superior no soportada.
-- Compatibilidad v13 (b346) verificada.
-
-## Instalación vía Manifest
-```
-https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json
-```
-## ZIP del release
-```
-https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.0.2/hxh-fvtt-1.0.2.zip
-```
+**Manifest:** `https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json`  
+**ZIP:** `https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.1.0/hxh-fvtt-1.1.0.zip`

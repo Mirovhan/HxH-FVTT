@@ -2,14 +2,14 @@
   "name": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "coreVersion": "13",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
     "maximum": "14"
   },
-  "description": "Sistema personalizado para Foundry VTT (MVP: stats, salvaciones, disciplinas, armas, vida/energía).",
+  "description": "Sistema personalizado para Foundry VTT (UI estilo Roll20, stats, salvaciones, disciplinas, habilidades, armas, vida/energía).",
   "authors": [
     {
       "name": "Gustavo Cevallos"
@@ -36,6 +36,6 @@
   ],
   "packs": [],
   "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.0.2/hxh-fvtt-1.0.2.zip",
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.1.0/hxh-fvtt-1.1.0.zip",
   "manifestPlusVersion": 1
 }

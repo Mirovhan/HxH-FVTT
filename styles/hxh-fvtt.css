@@ -1,9 +1,43 @@
-.hxh.sheet.actor .window-content { padding: 0.75rem; }
-.hxh .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; }
-.hxh .stat { border: 1px solid var(--color-border-light-2); border-radius: 6px; padding: 0.5rem; }
-.hxh .salvaciones, .hxh .disciplinas, .hxh .armas { margin-top: 0.75rem; }
-.hxh .disc-row, .hxh .arma { display: grid; grid-template-columns: 1.5fr repeat(5, 1fr) repeat(3, auto) 1.5fr; gap: 0.35rem; align-items: center; }
-.hxh .disc-row h4 { margin: 0; padding: 0.25rem 0.5rem; }
-.hxh .totales { text-align: right; font-weight: 600; }
-.hxh .arma input, .hxh .disc-row input, .hxh select { height: 28px; }
-.hxh button { height: 28px; }
+/* Palette approx Roll20 green card */
+:root {
+  --hxh-accent: #3d6f58;
+  --hxh-accent-2: #5a9b7a;
+  --hxh-border: #2e513f;
+  --hxh-bg: #eef3ef;
+}
+
+.hxh.sheet.actor .window-content { padding: 0.75rem; background: #f2f2f2; }
+.hxh .card {
+  background: var(--hxh-bg);
+  border: 2px solid var(--hxh-border);
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1) inset;
+}
+.hxh .card > .card-title {
+  font-weight: 700;
+  color: var(--hxh-accent);
+  border-bottom: 2px solid var(--hxh-accent);
+  margin-bottom: .35rem;
+  padding-bottom: .15rem;
+  letter-spacing: .02em;
+}
+.hxh .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.hxh .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+.hxh .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+.hxh input, .hxh select, .hxh textarea { height: 28px; }
+.hxh table { width: 100%; border-collapse: collapse; }
+.hxh th, .hxh td { border-bottom: 1px solid #cdd7d0; padding: .25rem; text-align: center; }
+.hxh th { background: #e6eee9; color: #2d5a46; }
+.hxh .right { text-align: right; }
+.hxh .tiny { width: 48px; }
+.hxh .btn { height: 28px; padding: 0 .5rem; }
+.hxh .muted { color: #777; font-size: 12px; }
+.hxh .flex { display:flex; gap:.5rem; align-items:center; }
+
+/* Salvaciones header cells */
+.hxh .salv-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:.5rem; }
+.hxh .salv-box { display:grid; grid-template-columns: 1fr 56px; gap:.35rem; align-items:center; }
+.hxh .salv-box label { text-align:left; font-size:13px; color:#2d5a46; font-weight:600; }
+.hxh .salv-total { display:flex; align-items:center; justify-content:center; font-weight:700; }

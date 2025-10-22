@@ -37,6 +37,13 @@ export class HxHActor extends Actor {
     data.salvaciones.reflejos.total  = max(DE, PE) + S("salvaciones.reflejos.bonoEspecial");
     data.salvaciones.voluntad.total  = max(IN, CA) + S("salvaciones.voluntad.bonoEspecial");
 
+    // Habilidades naturales total simple (placeholder: origen + rangos + extra)
+    data.habilidadesNaturales = (data.habilidadesNaturales||[]).map(h => {
+      const total = Number(h.origen||0) + Number(h.rangos||0) + Number(h.extra||0);
+      return {...h, total};
+    });
+
+    // Disciplinas D/I/C
     const discKeys = ["diseno","criaturas","historia","tecnologia","medicina","mundo"];
     data.disciplinas = data.disciplinas || {};
     for (const k of discKeys) {
@@ -46,13 +53,19 @@ export class HxHActor extends Actor {
       data.disciplinas[k].totalI = base + IN;
       data.disciplinas[k].totalC = base + CA;
     }
+
+    // Evasión total simple: base + Reflejos + sumatoria de armaduras.valor (si existiera)
+    const evBase = Number(data.evasiones?.base || 10);
+    const evRef = data.salvaciones.reflejos.total || 0;
+    const evArmor = (data.evasiones?.armaduras||[]).reduce((a,b)=>a+Number(b.valor||0),0);
+    data.evasiones.total = evBase + evRef + evArmor;
   }
 
   rollDisciplina(nombre, canal="D") {
     const d = this.system?.disciplinas?.[nombre];
     if (!d) return;
     const tot = canal==="D" ? d.totalD : canal==="I" ? d.totalI : d.totalC;
-    const formula = `${d.dado || "d4"} + ${tot||0}`;
+    const formula = `${d.dado || "1d4"} + ${tot||0}`;
     return (new Roll(formula)).roll({async:false}).toMessage({
       speaker: ChatMessage.getSpeaker({actor: this}),
       flavor: `Disciplina: ${nombre} (${canal})`
@@ -66,7 +79,7 @@ export class HxHActor extends Actor {
     const statVal = Number(getProperty(this.system, `stats.${statKey}.valor`) || 0);
     const statBono = Number(getProperty(this.system, `stats.${statKey}.bono`) || 0);
     const prec = `1d20 + ${Number(this.system?.experticia||0)} + ${statBono} + ${Number(arma.precision||0)}`;
-    const dano = `${arma.dado||"d6"} + ${statVal}`;
+    const dano = `${arma.dado||"1d6"} + ${statVal}`;
     const r1 = (new Roll(prec)).roll({async:false});
     const r2 = (new Roll(dano)).roll({async:false});
     return ChatMessage.create({
