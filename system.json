@@ -2,25 +2,9 @@
   "name": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "coreVersion": "13",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13",
-    "maximum": "14"
-  },
-  "description": "Sistema personalizado para Foundry VTT (UI estilo Roll20, stats, salvaciones, disciplinas, habilidades, armas, vida/energía).",
-  "authors": [
-    {
-      "name": "Gustavo Cevallos"
-    },
-    {
-      "name": "ChatGPT"
-    }
-  ],
-  "url": "https://github.com/Mirovhan/HxH-FVTT",
-  "bugs": "https://github.com/Mirovhan/HxH-FVTT/issues",
-  "license": "MIT",
+  "description": "FVTT system v1.2.0: botones de tirada y barras de progresión.",
   "esmodules": [
     "module/hxh-fvtt.js"
   ],
@@ -34,8 +18,5 @@
       "path": "lang/es.json"
     }
   ],
-  "packs": [],
-  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.1.0/hxh-fvtt-1.1.0.zip",
   "manifestPlusVersion": 1
 }

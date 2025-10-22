@@ -1,43 +1,7 @@
-/* Palette approx Roll20 green card */
-:root {
-  --hxh-accent: #3d6f58;
-  --hxh-accent-2: #5a9b7a;
-  --hxh-border: #2e513f;
-  --hxh-bg: #eef3ef;
-}
-
-.hxh.sheet.actor .window-content { padding: 0.75rem; background: #f2f2f2; }
-.hxh .card {
-  background: var(--hxh-bg);
-  border: 2px solid var(--hxh-border);
-  border-radius: 8px;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  box-shadow: 0 1px 0 rgba(0,0,0,.1) inset;
-}
-.hxh .card > .card-title {
-  font-weight: 700;
-  color: var(--hxh-accent);
-  border-bottom: 2px solid var(--hxh-accent);
-  margin-bottom: .35rem;
-  padding-bottom: .15rem;
-  letter-spacing: .02em;
-}
-.hxh .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
-.hxh .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
-.hxh .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
-.hxh input, .hxh select, .hxh textarea { height: 28px; }
-.hxh table { width: 100%; border-collapse: collapse; }
-.hxh th, .hxh td { border-bottom: 1px solid #cdd7d0; padding: .25rem; text-align: center; }
-.hxh th { background: #e6eee9; color: #2d5a46; }
-.hxh .right { text-align: right; }
-.hxh .tiny { width: 48px; }
-.hxh .btn { height: 28px; padding: 0 .5rem; }
-.hxh .muted { color: #777; font-size: 12px; }
-.hxh .flex { display:flex; gap:.5rem; align-items:center; }
-
-/* Salvaciones header cells */
-.hxh .salv-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:.5rem; }
-.hxh .salv-box { display:grid; grid-template-columns: 1fr 56px; gap:.35rem; align-items:center; }
-.hxh .salv-box label { text-align:left; font-size:13px; color:#2d5a46; font-weight:600; }
-.hxh .salv-total { display:flex; align-items:center; justify-content:center; font-weight:700; }
+:root{--hxh-accent:#3d6f58;--hxh-border:#2e513f;--hxh-bg:#eef3ef}
+.hxh.sheet.actor .window-content{padding:.75rem;background:#f2f2f2}
+.hxh .card{background:var(--hxh-bg);border:2px solid var(--hxh-border);border-radius:8px;margin:.5rem 0;padding:.5rem}
+.hxh .card-title{font-weight:700;color:var(--hxh-accent);border-bottom:2px solid var(--hxh-accent);margin-bottom:.35rem;padding-bottom:.15rem}
+.hxh .pips{display:grid;grid-template-columns:repeat(20,10px);gap:2px}.hxh .pip{width:10px;height:10px;border:1px solid #c0cfc7;border-radius:2px;background:#fff}
+.hxh .pip.on{background:#f4a261;border-color:#b87333}.rollcell{display:flex;align-items:center;gap:.25rem;justify-content:center}
+.rollcell button{min-width:28px}
