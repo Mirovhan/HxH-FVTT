@@ -1,63 +1,165 @@
 {
   "Actor": {
     "types": [
-      "character",
-      "npc"
+      "character"
     ],
-    "templates": {
-      "base": {
-        "identity": {
-          "origin": {
-            "type": "",
-            "subtype": ""
-          },
-          "age": 18,
-          "goal": "",
-          "flaws": {
-            "physical": "",
-            "mental": ""
-          }
-        },
-        "details": {
-          "level": 1,
-          "xp": 0
-        },
-        "attributes": {
-          "points": {
-            "current": 0,
-            "max": 0
-          },
-          "base": {
-            "fue": 10,
-            "des": 10,
-            "con": 10,
-            "per": 10,
-            "int": 10,
-            "car": 10
-          },
-          "trained": {
-            "fue": 0,
-            "des": 0,
-            "con": 0,
-            "per": 0,
-            "int": 0,
-            "car": 0
-          }
-        }
-      }
-    },
+    "templates": [],
     "character": {
-      "templates": [
-        "base"
-      ]
-    },
-    "npc": {
-      "templates": [
-        "base"
-      ]
+      "nivel": 1,
+      "experticia": 0,
+      "stats": {
+        "fuerza": {
+          "valor": 0,
+          "bono": 0
+        },
+        "destreza": {
+          "valor": 0,
+          "bono": 0
+        },
+        "constitucion": {
+          "valor": 0,
+          "bono": 0
+        },
+        "inteligencia": {
+          "valor": 0,
+          "bono": 0
+        },
+        "percepcion": {
+          "valor": 0,
+          "bono": 0
+        },
+        "carisma": {
+          "valor": 0,
+          "bono": 0
+        }
+      },
+      "salvaciones": {
+        "fortaleza": {
+          "bonoEspecial": 0,
+          "total": 0
+        },
+        "reflejos": {
+          "bonoEspecial": 0,
+          "total": 0
+        },
+        "voluntad": {
+          "bonoEspecial": 0,
+          "total": 0
+        }
+      },
+      "vida": {
+        "total": 0,
+        "actual": 0,
+        "bonusDurable": 0
+      },
+      "energia": {
+        "total": 0,
+        "actual": 0
+      },
+      "habilidades": {
+        "naturales": {},
+        "rangosTotales": 0,
+        "rangosAsignados": 0
+      },
+      "disciplinas": {
+        "diseno": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        },
+        "criaturas": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        },
+        "historia": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        },
+        "tecnologia": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        },
+        "medicina": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        },
+        "mundo": {
+          "dado": "d4",
+          "origen": 0,
+          "rangos": 0,
+          "especial": 0,
+          "totalD": 0,
+          "totalI": 0,
+          "totalC": 0
+        }
+      },
+      "talentos": {
+        "slots": [
+          {
+            "sel": "",
+            "bloq": true,
+            "warn": false,
+            "msg": "",
+            "needLevel": 2
+          },
+          {
+            "sel": "",
+            "bloq": true,
+            "warn": false,
+            "msg": "",
+            "needLevel": 6
+          },
+          {
+            "sel": "",
+            "bloq": true,
+            "warn": false,
+            "msg": "",
+            "needLevel": 10
+          },
+          {
+            "sel": "",
+            "bloq": true,
+            "warn": false,
+            "msg": "",
+            "needLevel": 15
+          },
+          {
+            "sel": "",
+            "bloq": true,
+            "warn": false,
+            "msg": "",
+            "needLevel": 20
+          }
+        ]
+      },
+      "dotes": {
+        "lista": []
+      },
+      "armas": []
     }
-  },
-  "Item": {
-    "types": []
   }
 }

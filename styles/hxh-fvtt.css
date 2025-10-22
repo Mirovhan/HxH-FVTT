@@ -1,0 +1,9 @@
+.hxh.sheet.actor .window-content { padding: 0.75rem; }
+.hxh .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; }
+.hxh .stat { border: 1px solid var(--color-border-light-2); border-radius: 6px; padding: 0.5rem; }
+.hxh .salvaciones, .hxh .disciplinas, .hxh .armas { margin-top: 0.75rem; }
+.hxh .disc-row, .hxh .arma { display: grid; grid-template-columns: 1.5fr repeat(5, 1fr) repeat(3, auto) 1.5fr; gap: 0.35rem; align-items: center; }
+.hxh .disc-row h4 { margin: 0; padding: 0.25rem 0.5rem; }
+.hxh .totales { text-align: right; font-weight: 600; }
+.hxh .arma input, .hxh .disc-row input, .hxh select { height: 28px; }
+.hxh button { height: 28px; }

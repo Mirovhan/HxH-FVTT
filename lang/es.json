@@ -1,1 +1,25 @@
-{}
+{
+  "hxh": {
+    "stat": {
+      "fuerza": "Fuerza",
+      "destreza": "Destreza",
+      "constitucion": "Constitución",
+      "inteligencia": "Inteligencia",
+      "percepcion": "Percepción",
+      "carisma": "Carisma"
+    },
+    "salv": {
+      "fortaleza": "Fortaleza",
+      "reflejos": "Reflejos",
+      "voluntad": "Voluntad"
+    },
+    "disc": {
+      "diseno": "Diseño",
+      "criaturas": "Criaturas",
+      "historia": "Historia",
+      "tecnologia": "Tecnología",
+      "medicina": "Medicina",
+      "mundo": "Mundo"
+    }
+  }
+}

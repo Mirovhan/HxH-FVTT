@@ -1,36 +1,36 @@
-# Hunter × Hunter TTRPG (1.8B) — Foundry VTT v13
+# HxH FVTT (Custom System)
 
-Sistema para jugar **Hunter × Hunter 1.8B** en **Foundry VTT v13** (Sheets V2).
-Incluye hoja de personaje, tiradas configurables (**d20** o **d100**), y **Hatsus** con control de **PC**.
+Sistema liviano para **Foundry VTT** inspirado en una hoja anterior de Roll20, portado y simplificado para FVTT.
 
-## Manifest (instalación)
-```
-https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json
-```
-> Requiere Foundry **v13**. Para 12.x usa una versión anterior.
+> 🧪 Estado: MVP funcional (Stats, Salvaciones, Disciplinas con tiradas D/I/C, Armas con ataque y daño, Vida/Energía).
 
-## Uso rápido
-- **Modo de Tirada:** *Configure Settings → System Settings* → d20 o d100.
-- **PC Totales:** por defecto = **Nivel + INT + floor(PER/2)**.
-- **Hatsus:** crea un Item *Hatsu*, define **Coste Base (PC)** y **Modificadores**, y actívalo desde la hoja del PJ.
+## Instalación (Dev local)
+
+1. Clona este repo en cualquier carpeta.
+2. Copia la carpeta `hxh-fvtt/` a tu **user data** de Foundry:
+   - Windows: `%LOCALAPPDATA%/FoundryVTT/Data/systems/`
+   - macOS: `~/Library/Application Support/FoundryVTT/Data/systems/`
+   - Linux: `~/.local/share/FoundryVTT/Data/systems/`
+3. Reinicia Foundry y selecciona el sistema **HxH FVTT (Custom)** al crear el Mundo.
+
+### Módulos recomendados
+- **libWrapper** (requerido para enganchar limpio).
+- **socketlib** (si usas tiradas con lógica del GM).
+- **Dice So Nice**, **Drag Ruler** (UX).
 
 ## Estructura
-```
-.
-├─ system.json
-├─ template.json
-├─ system/
-│  ├─ system.js
-│  ├─ hxh-actor.js
-│  ├─ hxh-item.js
-│  ├─ actor-sheet.js
-│  └─ item-sheet.js
-├─ templates/
-│  └─ sheets/
-│     ├─ actor/character-sheet.hbs
-│     └─ item/hatsu-sheet.hbs
-├─ styles/system.css
-└─ lang/
-   ├─ es.json
-   └─ en.json
-```
+- `system.json` — manifiesto del sistema.
+- `template.json` — modelo de datos del Actor.
+- `module/` — JS del sistema (Actor, Sheet y helpers).
+- `templates/` — Handlebars de la hoja.
+- `styles/` — CSS.
+- `lang/` — i18n.
+
+## Roadmap
+- Habilidades Naturales (contador de rangos + validador).
+- Validador de Talentos/Dotes por nivel y requisitos de stats (UI con mensajes).
+- Compendios de ejemplo.
+- PowerCards-style en el chat (plantillas bonitas).
+
+## Licencia
+MIT — ver `LICENSE`.

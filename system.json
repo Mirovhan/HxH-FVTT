@@ -1,22 +1,29 @@
 {
-  "id": "hxh-1-8b",
-  "title": "Hunter × Hunter TTRPG (1.8B)",
-  "version": "0.9.2",
-  "description": "Sección 1 completa: Retrato + Token, Origen (tipo/subtipo), XP→Nivel, puntos entrenables y atributos con bono no lineal. Persistencia y re-render.",
+  "name": "hxh-fvtt",
+  "title": "HxH FVTT (Custom)",
+  "id": "hxh-fvtt",
+  "version": "0.1.0",
   "compatibility": {
-    "minimum": "13",
-    "verified": "13.341"
+    "minimum": "11",
+    "verified": "12"
   },
+  "description": "Sistema personalizado para Foundry VTT (MVP: stats, salvaciones, disciplinas, armas, vida/energía).",
   "authors": [
     {
-      "name": "Mirovhan & colaboradores"
+      "name": "Gustavo Cevallos"
+    },
+    {
+      "name": "ChatGPT"
     }
   ],
+  "url": "https://github.com/Mirovhan/HxH-RPG",
+  "bugs": "https://github.com/Mirovhan/HxH-RPG/issues",
+  "license": "MIT",
   "esmodules": [
-    "system/system.mjs"
+    "module/hxh-fvtt.js"
   ],
   "styles": [
-    "styles/system.css"
+    "styles/hxh-fvtt.css"
   ],
   "languages": [
     {
@@ -25,14 +32,6 @@
       "path": "lang/es.json"
     }
   ],
-  "grid": {
-    "distance": 1,
-    "units": "m",
-    "type": 1
-  },
-  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-RPG/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-RPG/releases/latest/download/hxh-1-8b.zip",
-  "url": "https://github.com/Mirovhan/HxH-RPG",
-  "license": "MIT",
-  "template": "template.json"
+  "packs": [],
+  "manifestPlusVersion": 1
 }
