@@ -5,16 +5,8 @@
     ],
     "templates": [],
     "character": {
-      "nombre": "",
       "nivel": 1,
       "experticia": 0,
-      "objetivo": "",
-      "defectos": "",
-      "origen": {
-        "tipo": "",
-        "subtipo": "",
-        "color": "#4a8f6e"
-      },
       "stats": {
         "fuerza": {
           "valor": 0,
@@ -69,33 +61,6 @@
       "energia": {
         "total": 0,
         "actual": 0
-      },
-      "evasiones": {
-        "base": 10,
-        "armaduras": [],
-        "total": 10
-      },
-      "talentos": {
-        "slots": [
-          {
-            "needLevel": 2
-          },
-          {
-            "needLevel": 6
-          },
-          {
-            "needLevel": 10
-          },
-          {
-            "needLevel": 15
-          },
-          {
-            "needLevel": 20
-          }
-        ]
-      },
-      "dotes": {
-        "lista": []
       },
       "habilidadesNaturales": [
         {

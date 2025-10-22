@@ -2,9 +2,25 @@
   "name": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "coreVersion": "13",
-  "description": "FVTT system v1.2.0: botones de tirada y barras de progresión.",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "14"
+  },
+  "description": "FVTT system: UI estilo Roll20, botones de tirada y barras de progresión.",
+  "authors": [
+    {
+      "name": "Gustavo Cevallos"
+    },
+    {
+      "name": "ChatGPT"
+    }
+  ],
+  "url": "https://github.com/Mirovhan/HxH-FVTT",
+  "bugs": "https://github.com/Mirovhan/HxH-FVTT/issues",
+  "license": "MIT",
   "esmodules": [
     "module/hxh-fvtt.js"
   ],
@@ -18,5 +34,8 @@
       "path": "lang/es.json"
     }
   ],
+  "packs": [],
+  "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.2.1/hxh-fvtt-1.2.1.zip",
   "manifestPlusVersion": 1
 }
