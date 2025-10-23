@@ -6,10 +6,11 @@
     "templates": [],
     "character": {
       "identidad": {
-        "nombre": "",
         "origen": "",
         "subtipo": "",
-        "color_cards": ""
+        "color_cards": "",
+        "objetivo": "",
+        "defectos": ""
       },
       "progreso": {
         "experiencia": 0,
@@ -281,10 +282,21 @@
           "nombre": ""
         }
       ],
-      "accesorios": [],
+      "accesorios": [
+        {
+          "nombre": "",
+          "nota": "",
+          "cargas": ""
+        }
+      ],
       "inventario": {
         "dinero": 0,
-        "mochila": []
+        "mochila": [
+          {
+            "item": "",
+            "cantidad": 1
+          }
+        ]
       }
     }
   }

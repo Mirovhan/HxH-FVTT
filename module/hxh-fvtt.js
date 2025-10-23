@@ -8,6 +8,7 @@ Hooks.once("init", async function() {
 
   Handlebars.registerHelper("eq", (a,b) => a===b);
   Handlebars.registerHelper("times", function(n, block) { let out=""; n=Number(n)||0; for (let i=0;i<n;i++) out += block.fn(i); return out; });
+  Handlebars.registerHelper("increment", (i)=> (Number(i||0)+1));
   Handlebars.registerHelper("subtract", (a,b)=> (Number(a)||0)-(Number(b)||0));
 
   await loadTemplates([

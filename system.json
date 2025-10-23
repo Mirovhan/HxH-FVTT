@@ -1,8 +1,8 @@
 {
   "id": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
-  "description": "UI estilo Roll20 + tiradas completas (atributos, habilidades, disciplinas, salvaciones, armas). Persistencia y cálculos v13.",
-  "version": "1.3.2",
+  "description": "Hoja de personaje estilo Roll20 con tiradas completas (atributos, habilidades, disciplinas, salvaciones, armas) y paneles adicionales (Talentos, Dotes, Inventario, Accesorios, Objetivo/Defectos, Origen). Compatible Foundry VTT v13.",
+  "version": "1.4.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
@@ -34,5 +34,5 @@
   ],
   "packs": [],
   "manifest": "https://cdn.jsdelivr.net/gh/Mirovhan/HxH-FVTT@main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.3.2/hxh-fvtt-1.3.2.zip"
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.4.0/hxh-fvtt-1.4.0.zip"
 }

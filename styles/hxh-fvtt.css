@@ -9,7 +9,8 @@
 .hxh table{width:100%;border-collapse:collapse}
 .hxh th,.hxh td{padding:4px;border-bottom:1px solid #cfd8d3;text-align:center}
 .hxh th{background:#e8efe9;color:#2b5946}
-.hxh input,.hxh select{height:26px}
+.hxh input,.hxh select, .hxh textarea{height:26px}
+.hxh textarea{height:64px; resize: vertical;}
 .hxh .tiny{width:56px}
 .hxh .btn{height:26px;padding:0 .5rem}
 .hxh .rollcell{display:flex;align-items:center;justify-content:center;gap:4px}
@@ -20,3 +21,5 @@
 .hxh .pip.on{background:#f4a261;border-color:#b87333}
 .hxh .row{display:flex;gap:8px;align-items:center}
 .hxh .grow{flex:1}
+.hxh .right{justify-self:end}
+.hxh .table-controls{display:flex; gap:4px; align-items:center; justify-content:flex-end}

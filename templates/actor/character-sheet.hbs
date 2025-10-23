@@ -1,6 +1,7 @@
 
 <form class="{{cssClass}} sheet-body hxh" autocomplete="off">
   <div class="grid-2">
+    <!-- Columna izquierda -->
     <div>
       <div class="panel">
         <div class="title">Estadísticas</div>
@@ -9,25 +10,25 @@
           <tbody>
             {{#each system.stats as |s k|}}
             <tr>
-              <td><input class="tiny" name="system.stats.{{k}}.valor" type="number" value="{{s.valor}}"></td>
-              <td><input class="tiny" name="system.stats.{{k}}.bono"  type="number" value="{{s.bono}}"></td>
-              <td><input class="tiny" name="system.stats.{{k}}.origen"type="number" value="{{s.origen}}"></td>
-              <td style="text-align:left;">{{k}}</td>
+              <td><input id="stat-{{k}}-val" class="tiny" name="system.stats.{{k}}.valor" type="number" value="{{s.valor}}"></td>
+              <td><input id="stat-{{k}}-bon" class="tiny" name="system.stats.{{k}}.bono"  type="number" value="{{s.bono}}"></td>
+              <td><input id="stat-{{k}}-ori" class="tiny" name="system.stats.{{k}}.origen"type="number" value="{{s.origen}}"></td>
+              <td style="text-align:left;"><label for="stat-{{k}}-val">{{k}}</label></td>
               <td>
                 <div class="pips">
                   {{#times s.origen}}<div class="pip on"></div>{{/times}}
                   {{#times (subtract 20 s.origen)}}<div class="pip"></div>{{/times}}
                 </div>
               </td>
-              <td class="rollcell"><button type="button" class="btn" data-action="roll-stat" data-key="{{k}}">🎲</button></td>
+              <td class="rollcell"><button aria-label="Tirar {{k}}" type="button" class="btn" data-action="roll-stat" data-key="{{k}}">🎲</button></td>
             </tr>
             {{/each}}
           </tbody>
         </table>
         <div class="row">
-          <label>Expericia:</label><input class="tiny" name="system.experticia" type="number" value="{{system.experticia}}">
-          <label>Nivel:</label><input class="tiny" name="system.progreso.nivel" type="number" value="{{system.progreso.nivel}}">
-          <label>Iniciativa:</label><input class="tiny" name="system.iniciativa" type="number" value="{{system.iniciativa}}">
+          <label for="xp">Expericia:</label><input id="xp" class="tiny" name="system.experticia" type="number" value="{{system.experticia}}">
+          <label for="nivel">Nivel:</label><input id="nivel" class="tiny" name="system.progreso.nivel" type="number" value="{{system.progreso.nivel}}">
+          <label for="init">Iniciativa:</label><input id="init" class="tiny" name="system.iniciativa" type="number" value="{{system.iniciativa}}">
         </div>
       </div>
 
@@ -35,17 +36,17 @@
         <div class="title">Vida &amp; Energía</div>
         <div class="grid-2">
           <div>
-            <label>Vida</label>
+            <label for="vida-act">Vida</label>
             <div class="row">
-              <input name="system.vida.actual" type="number" value="{{system.vida.actual}}"><span>/</span>
-              <input name="system.vida.total"  type="number" value="{{system.vida.total}}">
+              <input id="vida-act" name="system.vida.actual" type="number" value="{{system.vida.actual}}"><span>/</span>
+              <input id="vida-tot" name="system.vida.total"  type="number" value="{{system.vida.total}}">
             </div>
           </div>
           <div>
-            <label>Energía</label>
+            <label for="ene-act">Energía</label>
             <div class="row">
-              <input name="system.energia.actual" type="number" value="{{system.energia.actual}}"><span>/</span>
-              <input name="system.energia.total"  type="number" value="{{system.energia.total}}">
+              <input id="ene-act" name="system.energia.actual" type="number" value="{{system.energia.actual}}"><span>/</span>
+              <input id="ene-tot" name="system.energia.total"  type="number" value="{{system.energia.total}}">
             </div>
           </div>
         </div>
@@ -61,6 +62,16 @@
               {{#each ../system.stats as |s k|}}<option value="{{k}}" {{#if (eq ../a.stat.key k)}}selected{{/if}}>{{k}}</option>{{/each}}
             </select>
             <input name="system.armas.{{i}}.precision" type="number" value="{{a.precision}}" placeholder="Precisión">
+            <select name="system.armas.{{i}}.tipo">
+              <option {{#if (eq a.tipo "Contundente")}}selected{{/if}}>Contundente</option>
+              <option {{#if (eq a.tipo "Perforante")}}selected{{/if}}>Perforante</option>
+              <option {{#if (eq a.tipo "Cortante")}}selected{{/if}}>Cortante</option>
+            </select>
+            <select name="system.armas.{{i}}.extremidad">
+              <option {{#if (eq a.extremidad "Brazo Derecho")}}selected{{/if}}>Brazo Derecho</option>
+              <option {{#if (eq a.extremidad "Brazo Izquierdo")}}selected{{/if}}>Brazo Izquierdo</option>
+              <option {{#if (eq a.extremidad "Ambas Manos")}}selected{{/if}}>Ambas Manos</option>
+            </select>
             <input style="grid-column: span 3;" name="system.armas.{{i}}.efectos" value="{{a.efectos}}" placeholder="Efectos">
             <div class="rollcell">
               <button type="button" class="btn" data-action="roll-ataque" data-index="{{i}}">⚔️</button>
@@ -70,13 +81,51 @@
         {{/each}}
         <button type="button" class="btn" data-action="add-arma">+ Arma</button>
       </div>
+
+      <div class="panel">
+        <div class="title">Accesorios</div>
+        <table>
+          <thead><tr><th>#</th><th>Accesorio</th><th>Nota</th><th>Cargas</th><th></th></tr></thead>
+          <tbody>
+            {{#each system.accesorios as |ac i|}}
+            <tr>
+              <td>{{increment i}}</td>
+              <td><input name="system.accesorios.{{i}}.nombre" value="{{ac.nombre}}"></td>
+              <td><input name="system.accesorios.{{i}}.nota" value="{{ac.nota}}"></td>
+              <td><input class="tiny" name="system.accesorios.{{i}}.cargas" value="{{ac.cargas}}"></td>
+              <td class="rollcell"><button class="btn" type="button" data-action="del-acc" data-index="{{i}}">✖</button></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="table-controls"><button type="button" class="btn" data-action="add-acc">+ Accesorio</button></div>
+      </div>
+
+      <div class="panel">
+        <div class="title">Inventario</div>
+        <div class="row"><label for="money">Dinero</label><input id="money" class="tiny" name="system.inventario.dinero" type="number" value="{{system.inventario.dinero}}"></div>
+        <table>
+          <thead><tr><th>Mochila</th><th>Cantidad</th><th></th></tr></thead>
+          <tbody>
+            {{#each system.inventario.mochila as |it i|}}
+            <tr>
+              <td><input name="system.inventario.mochila.{{i}}.item" value="{{it.item}}"></td>
+              <td><input class="tiny" name="system.inventario.mochila.{{i}}.cantidad" type="number" value="{{it.cantidad}}"></td>
+              <td class="rollcell"><button class="btn" type="button" data-action="del-item" data-index="{{i}}">✖</button></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="table-controls"><button type="button" class="btn" data-action="add-item">+ Item</button></div>
+      </div>
     </div>
 
+    <!-- Columna derecha -->
     <div>
       <div class="panel">
         <div class="title">Evasión Total</div>
         <div class="grid-3">
-          <div><label>Base</label><input class="tiny" name="system.evasiones.base" type="number" value="{{system.evasiones.base}}"></div>
+          <div><label for="evbase">Base</label><input id="evbase" class="tiny" name="system.evasiones.base" type="number" value="{{system.evasiones.base}}"></div>
           <div><label>Reflejos</label><div>{{system.salvaciones.reflejos.total}}</div></div>
           <div><label>Total</label><div>{{system.evasiones.total}}</div></div>
         </div>
@@ -162,6 +211,55 @@
             {{/each}}
           </tbody>
         </table>
+      </div>
+
+      <div class="panel">
+        <div class="title">Talentos</div>
+        <table>
+          <thead><tr><th>Requisito</th><th>Talento</th></tr></thead>
+          <tbody>
+            {{#each system.talentos as |t i|}}
+            <tr>
+              <td> Nv {{t.nivel}} </td>
+              <td><input name="system.talentos.{{i}}.nombre" value="{{t.nombre}}" {{#if (lt ../system.progreso.nivel t.nivel)}}disabled{{/if}}></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div class="title">Dotes</div>
+        <table>
+          <thead><tr><th>Requisito</th><th>Dote</th></tr></thead>
+          <tbody>
+            {{#each system.dotes as |d i|}}
+            <tr>
+              <td> Nv {{d.nivel}} </td>
+              <td><input name="system.dotes.{{i}}.nombre" value="{{d.nombre}}" {{#if (lt ../system.progreso.nivel d.nivel)}}disabled{{/if}}></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div class="title">Meta &amp; Origen</div>
+        <div class="grid-3">
+          <div><label for="orig">Tipo de origen</label><input id="orig" name="system.identidad.origen" value="{{system.identidad.origen}}"></div>
+          <div><label for="subo">Subtipo</label><input id="subo" name="system.identidad.subtipo" value="{{system.identidad.subtipo}}"></div>
+          <div><label for="color">Color de cards</label><input id="color" name="system.identidad.color_cards" value="{{system.identidad.color_cards}}"></div>
+        </div>
+        <div class="grid-2" style="margin-top:6px;">
+          <div>
+            <label for="obj">Objetivo</label>
+            <textarea id="obj" name="system.identidad.objetivo">{{system.identidad.objetivo}}</textarea>
+          </div>
+          <div>
+            <label for="def">Defectos</label>
+            <textarea id="def" name="system.identidad.defectos">{{system.identidad.defectos}}</textarea>
+          </div>
+        </div>
       </div>
     </div>
   </div>
