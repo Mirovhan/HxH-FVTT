@@ -5,8 +5,22 @@
     ],
     "templates": [],
     "character": {
-      "nivel": 1,
-      "experticia": 0,
+      "identidad": {
+        "nombre": "",
+        "origen": "",
+        "subtipo": "",
+        "color_cards": ""
+      },
+      "progreso": {
+        "experiencia": 0,
+        "siguienteNivel": 0,
+        "nivel": 1,
+        "edad": 0,
+        "pEntrenables": {
+          "actual": 0,
+          "maximo": 0
+        }
+      },
       "stats": {
         "fuerza": {
           "valor": 0,
@@ -39,6 +53,21 @@
           "origen": 0
         }
       },
+      "iniciativa": 0,
+      "experticia": 0,
+      "vida": {
+        "actual": 0,
+        "total": 0
+      },
+      "energia": {
+        "actual": 0,
+        "total": 0
+      },
+      "evasiones": {
+        "base": 10,
+        "armaduras": [],
+        "total": 10
+      },
       "salvaciones": {
         "fortaleza": {
           "bonoEspecial": 0,
@@ -52,15 +81,6 @@
           "bonoEspecial": 0,
           "total": 0
         }
-      },
-      "vida": {
-        "total": 0,
-        "actual": 0,
-        "bonusDurable": 0
-      },
-      "energia": {
-        "total": 0,
-        "actual": 0
       },
       "habilidadesNaturales": [
         {
@@ -204,7 +224,68 @@
           "totalC": 0
         }
       },
-      "armas": []
+      "armas": [],
+      "talentos": [
+        {
+          "nivel": 2,
+          "nombre": ""
+        },
+        {
+          "nivel": 6,
+          "nombre": ""
+        },
+        {
+          "nivel": 10,
+          "nombre": ""
+        },
+        {
+          "nivel": 15,
+          "nombre": ""
+        },
+        {
+          "nivel": 20,
+          "nombre": ""
+        }
+      ],
+      "dotes": [
+        {
+          "nivel": 1,
+          "nombre": ""
+        },
+        {
+          "nivel": 4,
+          "nombre": ""
+        },
+        {
+          "nivel": 7,
+          "nombre": ""
+        },
+        {
+          "nivel": 9,
+          "nombre": ""
+        },
+        {
+          "nivel": 11,
+          "nombre": ""
+        },
+        {
+          "nivel": 13,
+          "nombre": ""
+        },
+        {
+          "nivel": 17,
+          "nombre": ""
+        },
+        {
+          "nivel": 19,
+          "nombre": ""
+        }
+      ],
+      "accesorios": [],
+      "inventario": {
+        "dinero": 0,
+        "mochila": []
+      }
     }
   }
 }

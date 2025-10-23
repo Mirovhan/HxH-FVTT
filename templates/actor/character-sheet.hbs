@@ -1,16 +1,17 @@
+
 <form class="{{cssClass}} sheet-body hxh" autocomplete="off">
   <div class="grid-2">
     <div>
-      <div class="card">
-        <div class="card-title">Estadísticas</div>
+      <div class="panel">
+        <div class="title">Estadísticas</div>
         <table>
           <thead><tr><th>VAL</th><th>BON</th><th>Origen</th><th>Atributo</th><th>Progresión</th><th>🎲</th></tr></thead>
           <tbody>
             {{#each system.stats as |s k|}}
             <tr>
-              <td><input class="tiny" id="stat-{{k}}-valor" name="system.stats.{{k}}.valor" type="number" value="{{s.valor}}"></td>
-              <td><input class="tiny" id="stat-{{k}}-bono"  name="system.stats.{{k}}.bono"  type="number" value="{{s.bono}}"></td>
-              <td><input class="tiny" id="stat-{{k}}-origen"name="system.stats.{{k}}.origen"type="number" value="{{s.origen}}"></td>
+              <td><input class="tiny" name="system.stats.{{k}}.valor" type="number" value="{{s.valor}}"></td>
+              <td><input class="tiny" name="system.stats.{{k}}.bono"  type="number" value="{{s.bono}}"></td>
+              <td><input class="tiny" name="system.stats.{{k}}.origen"type="number" value="{{s.origen}}"></td>
               <td style="text-align:left;">{{k}}</td>
               <td>
                 <div class="pips">
@@ -18,116 +19,139 @@
                   {{#times (subtract 20 s.origen)}}<div class="pip"></div>{{/times}}
                 </div>
               </td>
-              <td class="rollcell"><button class="btn" type="button" data-action="roll-stat" data-key="{{k}}">🎲</button></td>
+              <td class="rollcell"><button type="button" class="btn" data-action="roll-stat" data-key="{{k}}">🎲</button></td>
             </tr>
             {{/each}}
           </tbody>
         </table>
-        <div class="flex">
-          <label for="experticia">Expericia:</label>
-          <input class="tiny" id="experticia" name="system.experticia" type="number" value="{{system.experticia}}">
-          <label for="nivel">Nivel:</label>
-          <input class="tiny" id="nivel" name="system.nivel" type="number" value="{{system.nivel}}">
+        <div class="row">
+          <label>Expericia:</label><input class="tiny" name="system.experticia" type="number" value="{{system.experticia}}">
+          <label>Nivel:</label><input class="tiny" name="system.progreso.nivel" type="number" value="{{system.progreso.nivel}}">
+          <label>Iniciativa:</label><input class="tiny" name="system.iniciativa" type="number" value="{{system.iniciativa}}">
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-title">Vida &amp; Energía</div>
+      <div class="panel">
+        <div class="title">Vida &amp; Energía</div>
         <div class="grid-2">
           <div>
-            <label for="vida-actual">Vida</label>
-            <div class="flex">
-              <input id="vida-actual" name="system.vida.actual" type="number" value="{{system.vida.actual}}">
-              <span>/</span>
-              <label class="sr-only" for="vida-total">Vida total</label>
-              <input id="vida-total"  name="system.vida.total"  type="number" value="{{system.vida.total}}">
+            <label>Vida</label>
+            <div class="row">
+              <input name="system.vida.actual" type="number" value="{{system.vida.actual}}"><span>/</span>
+              <input name="system.vida.total"  type="number" value="{{system.vida.total}}">
             </div>
           </div>
           <div>
-            <label for="energia-actual">Energía</label>
-            <div class="flex">
-              <input id="energia-actual" name="system.energia.actual" type="number" value="{{system.energia.actual}}">
-              <span>/</span>
-              <label class="sr-only" for="energia-total">Energía total</label>
-              <input id="energia-total"  name="system.energia.total"  type="number" value="{{system.energia.total}}">
+            <label>Energía</label>
+            <div class="row">
+              <input name="system.energia.actual" type="number" value="{{system.energia.actual}}"><span>/</span>
+              <input name="system.energia.total"  type="number" value="{{system.energia.total}}">
             </div>
           </div>
         </div>
-        <div class="muted">Bonus Durable: {{system.vida.bonusDurable}}</div>
       </div>
 
-      <div class="card">
-        <div class="card-title">Armas</div>
+      <div class="panel">
+        <div class="title">Armas</div>
         {{#each system.armas as |a i|}}
-        <div class="grid-4" style="margin-bottom:.35rem;">
-          <label class="sr-only" for="arma-{{i}}-nombre">Nombre</label>
-          <input id="arma-{{i}}-nombre" name="system.armas.{{i}}.nombre" value="{{a.nombre}}" placeholder="Nombre">
-          <label class="sr-only" for="arma-{{i}}-dado">Dado</label>
-          <input id="arma-{{i}}-dado"   name="system.armas.{{i}}.dado"   value="{{a.dado}}"   placeholder="1d6">
-          <label class="sr-only" for="arma-{{i}}-stat">Stat</label>
-          <select id="arma-{{i}}-stat" name="system.armas.{{i}}.stat.key">
-            {{#each ../system.stats as |s k|}}<option value="{{k}}" {{#if (eq a.stat.key k)}}selected{{/if}}>{{k}}</option>{{/each}}
-          </select>
-          <label class="sr-only" for="arma-{{i}}-precision">Precisión</label>
-          <input id="arma-{{i}}-precision" name="system.armas.{{i}}.precision" type="number" value="{{a.precision}}" placeholder="Precisión">
-          <label class="sr-only" for="arma-{{i}}-efectos">Efectos</label>
-          <input id="arma-{{i}}-efectos"   name="system.armas.{{i}}.efectos"   value="{{a.efectos}}" placeholder="Efectos" style="grid-column: span 2;">
-          <button class="btn" type="button" data-action="roll-ataque" data-index="{{i}}">⚔️</button>
-        </div>
+          <div class="grid-4" style="margin-bottom:.35rem;">
+            <input name="system.armas.{{i}}.nombre" value="{{a.nombre}}" placeholder="Nombre">
+            <input name="system.armas.{{i}}.dado"   value="{{a.dado}}"   placeholder="1d6">
+            <select name="system.armas.{{i}}.stat.key">
+              {{#each ../system.stats as |s k|}}<option value="{{k}}" {{#if (eq ../a.stat.key k)}}selected{{/if}}>{{k}}</option>{{/each}}
+            </select>
+            <input name="system.armas.{{i}}.precision" type="number" value="{{a.precision}}" placeholder="Precisión">
+            <input style="grid-column: span 3;" name="system.armas.{{i}}.efectos" value="{{a.efectos}}" placeholder="Efectos">
+            <div class="rollcell">
+              <button type="button" class="btn" data-action="roll-ataque" data-index="{{i}}">⚔️</button>
+              <button type="button" class="btn" data-action="del-arma" data-index="{{i}}">✖</button>
+            </div>
+          </div>
         {{/each}}
-        <button class="btn" type="button" data-action="add-arma">+ Arma</button>
+        <button type="button" class="btn" data-action="add-arma">+ Arma</button>
       </div>
     </div>
 
     <div>
-      <div class="card">
-        <div class="card-title">Evasión Total</div>
+      <div class="panel">
+        <div class="title">Evasión Total</div>
         <div class="grid-3">
-          <div><label for="ev-base">Base</label><input class="tiny" id="ev-base" name="system.evasiones.base" type="number" value="{{system.evasiones.base}}"></div>
-          <div><label>Reflejos</label><div class="tiny" style="text-align:center; border:1px solid #cdd7d0; border-radius:4px; padding:.15rem 0;">{{system.salvaciones.reflejos.total}}</div></div>
-          <div><label>Total</label><div class="tiny" style="text-align:center; border:1px solid #cdd7d0; border-radius:4px; padding:.15rem 0;">{{system.evasiones.total}}</div></div>
+          <div><label>Base</label><input class="tiny" name="system.evasiones.base" type="number" value="{{system.evasiones.base}}"></div>
+          <div><label>Reflejos</label><div>{{system.salvaciones.reflejos.total}}</div></div>
+          <div><label>Total</label><div>{{system.evasiones.total}}</div></div>
+        </div>
+        <div style="margin-top:6px;">
+          <table>
+            <thead><tr><th>Nombre</th><th>V</th><th>SD</th><th>D</th><th>Valor</th><th></th></tr></thead>
+            <tbody>
+              {{#each system.evasiones.armaduras as |r i|}}
+              <tr>
+                <td><input name="system.evasiones.armaduras.{{i}}.nombre" value="{{r.nombre}}"></td>
+                <td><input class="tiny" name="system.evasiones.armaduras.{{i}}.v" type="number" value="{{r.v}}"></td>
+                <td><input class="tiny" name="system.evasiones.armaduras.{{i}}.sd" type="number" value="{{r.sd}}"></td>
+                <td><input class="tiny" name="system.evasiones.armaduras.{{i}}.d" type="number" value="{{r.d}}"></td>
+                <td><input class="tiny" name="system.evasiones.armaduras.{{i}}.valor" type="number" value="{{r.valor}}"></td>
+                <td class="rollcell"><button type="button" class="btn" data-action="del-armadura" data-index="{{i}}">✖</button></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          <button type="button" class="btn" data-action="add-armadura">+ Armadura</button>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-title">Salvaciones</div>
+      <div class="panel">
+        <div class="title">Salvaciones</div>
         <table>
           <thead><tr><th>Tipo</th><th>Bono especial</th><th>Total</th><th>🎲</th></tr></thead>
           <tbody>
-            <tr>
-              <td style="text-align:left;">Fortaleza</td>
-              <td><input class="tiny" id="SalvFort" name="system.salvaciones.fortaleza.bonoEspecial" type="number" value="{{system.salvaciones.fortaleza.bonoEspecial}}"></td>
-              <td>{{system.salvaciones.fortaleza.total}}</td>
-              <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="fortaleza">🎲</button></td>
-            </tr>
-            <tr>
-              <td style="text-align:left;">Reflejos</td>
-              <td><input class="tiny" id="SalvRef" name="system.salvaciones.reflejos.bonoEspecial" type="number" value="{{system.salvaciones.reflejos.bonoEspecial}}"></td>
-              <td>{{system.salvaciones.reflejos.total}}</td>
-              <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="reflejos">🎲</button></td>
-            </tr>
-            <tr>
-              <td style="text-align:left;">Voluntad</td>
-              <td><input class="tiny" id="SalvVol" name="system.salvaciones.voluntad.bonoEspecial" type="number" value="{{system.salvaciones.voluntad.bonoEspecial}}"></td>
-              <td>{{system.salvaciones.voluntad.total}}</td>
-              <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="voluntad">🎲</button></td>
-            </tr>
+            <tr><td style="text-align:left;">Fortaleza</td>
+                <td><input class="tiny" name="system.salvaciones.fortaleza.bonoEspecial" type="number" value="{{system.salvaciones.fortaleza.bonoEspecial}}"></td>
+                <td>{{system.salvaciones.fortaleza.total}}</td>
+                <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="fortaleza">🎲</button></td></tr>
+            <tr><td style="text-align:left;">Reflejos</td>
+                <td><input class="tiny" name="system.salvaciones.reflejos.bonoEspecial" type="number" value="{{system.salvaciones.reflejos.bonoEspecial}}"></td>
+                <td>{{system.salvaciones.reflejos.total}}</td>
+                <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="reflejos">🎲</button></td></tr>
+            <tr><td style="text-align:left;">Voluntad</td>
+                <td><input class="tiny" name="system.salvaciones.voluntad.bonoEspecial" type="number" value="{{system.salvaciones.voluntad.bonoEspecial}}"></td>
+                <td>{{system.salvaciones.voluntad.total}}</td>
+                <td class="rollcell"><button class="btn" data-action="roll-salv" data-key="voluntad">🎲</button></td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="card">
-        <div class="card-title">Disciplinas</div>
+      <div class="panel">
+        <div class="title">HABILIDADES NATURALES</div>
+        <table>
+          <thead><tr><th>Habilidad</th><th>Origen</th><th>Rangos</th><th>Extra</th><th>Total</th><th>🎲</th></tr></thead>
+          <tbody>
+            {{#each system.habilidadesNaturales as |h i|}}
+            <tr>
+              <td style="text-align:left;">{{h.nombre}}</td>
+              <td><input class="tiny" name="system.habilidadesNaturales.{{i}}.origen" type="number" value="{{h.origen}}"></td>
+              <td><input class="tiny" name="system.habilidadesNaturales.{{i}}.rangos" type="number" value="{{h.rangos}}"></td>
+              <td><input class="tiny" name="system.habilidadesNaturales.{{i}}.extra"  type="number" value="{{h.extra}}"></td>
+              <td>{{h.total}}</td>
+              <td class="rollcell"><button class="btn" type="button" data-action="roll-hab" data-index="{{i}}">🎲</button></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div class="title">Disciplinas</div>
         <table>
           <thead><tr><th>Disciplina</th><th>Dado</th><th>Origen</th><th>Rangos</th><th>Extra</th><th>D</th><th>I</th><th>C</th><th>🎲</th></tr></thead>
           <tbody>
             {{#each system.disciplinas as |d k|}}
             <tr>
               <td style="text-align:left;">{{k}}</td>
-              <td><input class="tiny" id="disc-{{k}}-dado"   name="system.disciplinas.{{k}}.dado"   value="{{d.dado}}"></td>
-              <td><input class="tiny" id="disc-{{k}}-origen" name="system.disciplinas.{{k}}.origen" type="number" value="{{d.origen}}"></td>
-              <td><input class="tiny" id="disc-{{k}}-rangos" name="system.disciplinas.{{k}}.rangos" type="number" value="{{d.rangos}}"></td>
-              <td><input class="tiny" id="disc-{{k}}-extra"  name="system.disciplinas.{{k}}.especial" type="number" value="{{d.especial}}"></td>
+              <td><input class="tiny" name="system.disciplinas.{{k}}.dado"   value="{{d.dado}}"></td>
+              <td><input class="tiny" name="system.disciplinas.{{k}}.origen" type="number" value="{{d.origen}}"></td>
+              <td><input class="tiny" name="system.disciplinas.{{k}}.rangos" type="number" value="{{d.rangos}}"></td>
+              <td><input class="tiny" name="system.disciplinas.{{k}}.especial" type="number" value="{{d.especial}}"></td>
               <td>{{d.totalD}}</td><td>{{d.totalI}}</td><td>{{d.totalC}}</td>
               <td class="rollcell">
                 <button class="btn" type="button" data-action="roll-disc" data-key="{{k}}" data-canal="D">D</button>
