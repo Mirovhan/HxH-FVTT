@@ -2,14 +2,14 @@
   "name": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "coreVersion": "13",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
     "maximum": "14"
   },
-  "description": "FVTT system: UI estilo Roll20, botones de tirada y barras de progresión.",
+  "description": "Fix v13: evaluate+toMessage, <form> para persistencia, submitOnChange y mejoras de UI.",
   "authors": [
     {
       "name": "Gustavo Cevallos"
@@ -36,6 +36,6 @@
   ],
   "packs": [],
   "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.2.1/hxh-fvtt-1.2.1.zip",
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.2.2/hxh-fvtt-1.2.2.zip",
   "manifestPlusVersion": 1
 }
