@@ -1,15 +1,13 @@
 {
-  "name": "hxh-fvtt",
-  "title": "HxH FVTT (Custom)",
   "id": "hxh-fvtt",
-  "version": "1.2.2",
-  "coreVersion": "13",
+  "title": "HxH FVTT (Custom)",
+  "description": "Fix v13: evaluate+toMessage, <form> para persistencia, submitOnChange y mejoras de UI.",
+  "version": "1.2.3",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
     "maximum": "14"
   },
-  "description": "Fix v13: evaluate+toMessage, <form> para persistencia, submitOnChange y mejoras de UI.",
   "authors": [
     {
       "name": "Gustavo Cevallos"
@@ -36,6 +34,5 @@
   ],
   "packs": [],
   "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.2.2/hxh-fvtt-1.2.2.zip",
-  "manifestPlusVersion": 1
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.2.3/hxh-fvtt-1.2.3.zip"
 }
