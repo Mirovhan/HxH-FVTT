@@ -1,8 +1,8 @@
 {
   "id": "hxh-fvtt",
   "title": "HxH FVTT (Custom)",
-  "description": "UI replica estilo Roll20 + tiradas completas para atributos/habilidades/disciplinas/salvaciones/armas; persistencia y cálculos v13.",
-  "version": "1.3.0",
+  "description": "UI estilo Roll20 + tiradas completas (atributos, habilidades, disciplinas, salvaciones, armas). Persistencia y cálculos v13.",
+  "version": "1.3.1",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
@@ -34,5 +34,5 @@
   ],
   "packs": [],
   "manifest": "https://raw.githubusercontent.com/Mirovhan/HxH-FVTT/main/system.json",
-  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.3.0/hxh-fvtt-1.3.0.zip"
+  "download": "https://github.com/Mirovhan/HxH-FVTT/releases/download/v1.3.1/hxh-fvtt-1.3.1.zip"
 }
